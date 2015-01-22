@@ -15,10 +15,13 @@ body
     background: $maincolor;
 }
 
+.container
+{
+    @include center($max_width: $container-desktop, $pad: $defaultpadding);
+}
+
 .title
 {
-    a
-    {
         font-size: 0;
         line-height: 0;
 
@@ -26,12 +29,10 @@ body
         padding: 0;
         a
         {
-            font-family: $mainfont;
-
             display: inline-block;
 
-            width: 164px;
-            height: 50px;
+            width: 370px;
+            height: 122px;
             margin-right: 0;
             margin-left: 0;
             padding: 0;
@@ -40,7 +41,6 @@ body
 
             @include hiddentext;
         }
-    }
 }
 
 .main aside {

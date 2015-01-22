@@ -15,11 +15,14 @@ $mainfont: "Lato", Helvetica, Arial;
 $headingfont: "Lato", Helvetica, Arial;
 $themeoptions-base-font-size: 16px;
 
+// Layout stuff
+$defaultpadding: 20px;
+
 // Breakpoints
 $layout-max-width: 1600px;
 $container-tv: 1824px; /* default: 1824px */
 $container-large: 1224px; /* default: 1224px */
-$container-desktop: 960px; /* default: 1170px */
+$container-desktop: 960px; /* default: 1170px, html5 boilerplate default: 1026px */
 $container-landscape-ipad: 960px; /* default: 970px */
 $container-ipad: 768px; /* default: 768px */
 $container-mobile: 480px; /* default: 480px */
