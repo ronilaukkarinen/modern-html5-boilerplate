@@ -18,6 +18,8 @@
     </head>
     <body>
 
+    <div id="page">
+
         <div class="header-container">
             <header class="wrapper clearfix">
                 <h1 class="title">h1.title</h1>
@@ -78,5 +80,7 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+
+    </div>
     </body>
 </html>

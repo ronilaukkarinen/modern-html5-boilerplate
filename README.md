@@ -9,6 +9,7 @@ This is a [HTML5 Boilerplate](https://html5boilerplate.com/) to use with [Gulp](
 - [SCSS](http://sass-lang.com/) / libsass
 - [Jeet Grid](http://jeet.gs/)
 - Automatic PHP/JS/CSS minification, uglify, combine, compress and concat
+- Typographic modular scale with [knife](https://github.com/Pushplaybang/knife)
 
 ## Installation
 

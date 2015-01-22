@@ -1,0 +1,172 @@
+@mixin peruslista() {
+	list-style:none;
+	list-style-type:none;
+}
+
+@mixin background-cover() {
+  background: {
+    size:cover;
+	repeat:no-repeat;
+	position:center;
+  }
+  background-size:cover;
+}
+
+@mixin background-auto() {
+  background: {
+    size:100% auto;
+	repeat:no-repeat;
+	position:center;
+  }
+  background-size:100% auto;
+}
+
+@mixin hiddentext() {
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    font-size: 0;
+    text-align: start;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-style: preserve-3d;
+}
+
+
+@mixin horizontal-align {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+}
+
+@mixin centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transform-style: preserve-3d;
+}
+
+@mixin vertical-gradient($startColor: #555, $endColor: #333) {
+background: $endColor; /* Old browsers */
+background: -moz-linear-gradient(top,  $startColor 0%, $endColor 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop(100%, $endColor)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  $startColor 0%, $endColor 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  $startColor 0%, $endColor 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  $startColor 0%, $endColor 100%); /* IE10+ */
+background: linear-gradient(to bottom,  $startColor 0%, $endColor 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=0 ); /* IE6-9 */
+}
+
+/**
+ * Source: https://raw.githubusercontent.com/drublic/Sass-Mixins/master/partials/_rem.scss
+ * @description
+ * This mixin enables you to use the CSS3 value `rem`, which lets you define
+ * property sizes based on the root element's font-size.
+ *
+ * @author drublic
+ *
+ * @link caniuse http://caniuse.com/rem
+ * @link spec http://www.w3.org/TR/css3-values/#relative0
+ *
+ * Note: Depending on the font-size of the root-element `rem` calculates a
+ * property of a current element. The fallback solution accepts a
+ * `default-font-size`-argument which is 16px by default.
+ */
+
+ /*
+  * Returns a number without unit. E.g. 30px -> 30
+  * Borrowed from https://github.com/zurb/foundation/blob/master/scss/foundation/_functions.scss
+  * 
+  * @param value {String}
+  * @returns
+  *   <Number>
+  */
+ @function strip-unit($value) {
+     @return $value / ($value * 0 + 1);
+ }
+
+ /*
+  * Outputs properties that use rem with a px fallback.
+  * It also takes px values and converts them to rem.
+  *
+  * @param property
+  * @param values
+  * @param default-font-size int optional
+  * @returns
+  *   <property>: <parsed value>px;
+  *   <property>: <parsed value>rem;
+  *
+  * @example
+  *   .selector {
+  *     @include rem(font-size, 1.3);
+  *     @include rem(padding, 20px);
+  *   }
+  */
+@mixin rem ($property, $values, $main-font-size: $themeoptions-base-font-size) {
+
+  // Empty list for all values in px
+  $px-values: ();
+  $rem-values: ();
+
+  // Iterate over entries
+  @each $value in $values {
+
+    // If the value is zero or of a type that doesn’t need conversion, return the value untouched
+    @if ( $value == 0 ) or type_of($value) == string or type_of($value) == color or type_of($value) == bool {
+      $px-values: append($px-values, $value);
+      $rem-values: append($rem-values, $value);
+
+    // Otherwise convert it properly
+    } @else {
+      $unit: unit($value);
+
+      @if $unit == 'px' {
+        $px-values: append($px-values, #{strip-unit($value)}px );
+        $rem-values: append($rem-values, (strip-unit($value) / strip-unit($main-font-size) * 1rem));
+      } @else {
+        $px-values: append($px-values, ($value * $main-font-size) );
+        $rem-values: append($rem-values, #{$value}rem);
+      }
+
+    }
+  }
+
+  // Return the property and its list of converted values
+  #{$property}: #{$px-values};
+  #{$property}: #{$rem-values};
+}
+
+/* Yleisesti hyväksi havaittuja määreitä */
+
+.centertxt, .aligncenter {
+  text-align:center;
+
+  * {
+    text-align:center;
+  }
+}
+
+/* Gridisettiä */
+
+.kolmasosa {
+    @include col(1/3);
+    @media(max-width: $container-ipad) {
+        @include stack();
+        @include rem('margin-bottom', 30px);
+    }
+}
+
+.fiftyfifty {
+    @include col(1/2);
+    @media(max-width: $container-ipad) {
+        @include stack();
+        @include rem('margin-bottom', 30px);
+    }
+}
