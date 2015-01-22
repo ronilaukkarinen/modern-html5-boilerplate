@@ -63,6 +63,14 @@
             </div> <!-- #main -->
         </div> <!-- #main-container -->
 
+        <div class="slide">
+
+            <div class="container">
+              <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi recusandae quae consectetur, explicabo repudiandae distinctio, adipisci asperiores amet rem facere, velit eius, accusamus ad. Natus porro iure, rerum rem! Dolorem!</h2>
+            </div>
+
+        </div>
+
         <div class="footer-container">
             <footer class="wrapper">
                 <h3>footer</h3>

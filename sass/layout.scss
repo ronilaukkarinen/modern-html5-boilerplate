@@ -13,6 +13,30 @@ body
 .header-container
 {
     background: $maincolor;
+
+    .title
+    {
+            font-size: 0;
+            line-height: 0;
+    
+            margin: 0;
+            padding: 0;
+            a
+            {
+                display: inline-block;
+    
+                width: 370px;
+                height: 122px;
+                margin-right: 0;
+                margin-left: 0;
+                padding: 0;
+    
+                background-image: url(../images/logo.png);
+    
+                @include hiddentext;
+            }
+    }
+
 }
 
 .container
@@ -20,35 +44,24 @@ body
     @include center($max_width: $container-desktop, $pad: $defaultpadding);
 }
 
-.title
+.slide
 {
-        font-size: 0;
-        line-height: 0;
+    overflow: auto;
 
-        margin: 0;
-        padding: 0;
-        a
-        {
-            display: inline-block;
+    padding: 3% 0;
 
-            width: 370px;
-            height: 122px;
-            margin-right: 0;
-            margin-left: 0;
-            padding: 0;
-
-            background-image: url(../images/logo.png);
-
-            @include hiddentext;
-        }
+    background: #fff;
 }
 
-.main aside {
-    background: #ffffff;
+.main aside
+{
+    background: #fff;
 }
 
-footer {
-    * {
-        color: #ffffff;
+footer
+{
+    *
+    {
+        color: #fff;
     }
 }
