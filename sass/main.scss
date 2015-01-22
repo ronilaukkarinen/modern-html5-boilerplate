@@ -70,19 +70,6 @@ body {
     margin: 0 5%;
 }
 
-/* ===================
-    ALL: Orange Theme
-   =================== */
-
-.header-container {
-    border-bottom: 20px solid darken($maincolor,10%);
-}
-
-.footer-container,
-.main aside {
-    border-top: 20px solid darken($maincolor,10%);
-}
-
 .header-container,
 .footer-container,
 .main aside {
@@ -176,7 +163,7 @@ nav a:hover {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: $container-mobile) {
 
 /* ====================
     INTERMEDIATE: Menu
@@ -211,18 +198,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width: 768px) {
-
-/* ====================
-    WIDE: CSS3 Effects
-   ==================== */
-
-    .header-container,
-    .main aside {
-        -webkit-box-shadow: 0 5px 10px #aaa;
-           -moz-box-shadow: 0 5px 10px #aaa;
-                box-shadow: 0 5px 10px #aaa;
-    }
+@media only screen and (min-width: $container-ipad) {
 
 /* ============
     WIDE: Menu
