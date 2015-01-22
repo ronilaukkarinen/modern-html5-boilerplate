@@ -21,7 +21,7 @@ var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
 var jshint      = require('gulp-jshint');
-var minifyHTML  = require('gulp-minify-html');
+var minifyhtml  = require('gulp-htmlmin');
 var exec        = require('gulp-exec');
 
 /* 
@@ -184,13 +184,15 @@ MARKUP
 */
 
 gulp.task('minify-html', function() {
-    var opts = {
-      comments: true,
-      spare: false
-    };
-
   gulp.src(markupSrc)
-    .pipe(minifyHTML(opts))
+    .pipe(minifyhtml({
+      collapseWhitespace: true,
+      removeComments: false,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      minifyJS: true,
+      minifyCSS: true
+    }))
     .pipe(gulp.dest('./'))
     .pipe(reload);
 });
