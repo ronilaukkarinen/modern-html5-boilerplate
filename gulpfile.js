@@ -94,6 +94,18 @@ gulp.task('browserSync', function () {
 
 /* 
 
+RELOAD
+====
+*/
+
+gulp.task('refresh', function() {
+  gulp.src(cssDest)
+    .pipe(reload({stream:true}));
+  });
+
+
+/* 
+
 SASS
 ====
 */
@@ -216,6 +228,7 @@ gulp.task('setWatch', function() {
 
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(sassSrc, ['sass']);
+  gulp.watch(cssDest, ['refresh']);
   gulp.watch(imgSrc, ['images']);
   gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
   gulp.watch(jsSrc, ['js', browserSync.reload]);
@@ -245,6 +258,7 @@ gulp.task('default', function(cb) {
     'minify-html',
     'browserSync',
     'watch',
+    'refresh'
     cb
     );
 });
