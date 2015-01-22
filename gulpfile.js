@@ -180,6 +180,7 @@ gulp.task('minify-html', function() {
   gulp.src(markupSrc)
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./'))
+    .pipe(reload);
 });
 
 /*
