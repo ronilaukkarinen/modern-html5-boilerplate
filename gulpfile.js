@@ -260,7 +260,7 @@ gulp.task('default', function(cb) {
     'minify-html',
     'browserSync',
     'watch',
-    'refresh'
+    'refresh',
     cb
     );
 });

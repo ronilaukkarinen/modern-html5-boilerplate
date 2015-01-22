@@ -6,11 +6,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
+        <title>Forgot something? Edit this title to describe your project - Modern HTML5 Boilerplate</title>
+        <meta name="description" content="You forgot to edit meta description. Not good.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/layout.css">
+
+        <link rel="shortcut icon" href="images/favicon.png">
+        <link rel="apple-touch-icon" href="images/icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/icon-retina.png">
 
         <!--[if lt IE 9]>
             <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
@@ -33,8 +38,9 @@
             </header>
         </div>
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
+        <div class="slide">
+
+            <div class="container">
 
                 <article>
                     <header>
@@ -55,26 +61,27 @@
                     </footer>
                 </article>
 
-                <aside>
-                    <h3>aside</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
-                </aside>
+            </div>
 
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
+        </div>
 
-        <div class="slide">
+        <div class="slide slide-alt">
 
             <div class="container">
-              <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi recusandae quae consectetur, explicabo repudiandae distinctio, adipisci asperiores amet rem facere, velit eius, accusamus ad. Natus porro iure, rerum rem! Dolorem!</h2>
+              <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi recusandae quae consectetur, explicabo repudiandae distinctio.</h2>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quas ratione. Vero perspiciatis voluptate rem voluptas placeat sapiente eius ipsum doloremque ut mollitia eum, inventore maiores voluptates ipsam aliquam non.</p>
+
             </div>
 
         </div>
 
         <div class="footer-container">
+
             <footer class="wrapper">
                 <h3>footer</h3>
             </footer>
+
         </div>
 
         <script src="js/all.js"></script>
