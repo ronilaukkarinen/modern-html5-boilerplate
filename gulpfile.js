@@ -78,7 +78,7 @@ gulp.task('browserSync', function () {
     // declare files to watch + look for files in assets directory (from watch task)
     var files = [
     cssDest + '/**/*.{css}',
-    jsSrc + '/**/*.js',
+    jsSrc,
     imgDest + '/*.{png,jpg,jpeg,gif}',
     markupSrc
     ];

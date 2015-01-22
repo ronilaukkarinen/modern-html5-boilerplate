@@ -8,7 +8,7 @@ This is a [HTML5 Boilerplate](https://html5boilerplate.com/) to use with [Gulp](
 - [Gulp](http://gulpjs.com/)
 - [SCSS](http://sass-lang.com/) / libsass
 - [Jeet Grid](http://jeet.gs/)
-- Automatic HTML/JS/CSS minification, uglify, combine, compress and concat
+- Automatic PHP/JS/CSS minification, uglify, combine, compress and concat
 
 ## Installation
 
