@@ -235,32 +235,3 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
   gulp.watch(jsSrc, ['js', browserSync.reload]);
 });
-
-
-/* 
-
-BUILD
-=====
-*/
-
-gulp.task('build', function(cb) {
-  runSequence('sass', 'images', cb);
-});
-
-/* 
-
-DEFAULT
-=======
-*/
-
-gulp.task('default', function(cb) {
-    runSequence(
-    'images',
-    'sass',
-    'minify-html',
-    'browserSync',
-    'watch',
-    'refresh',
-    cb
-    );
-});
