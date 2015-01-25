@@ -59,11 +59,10 @@ var imgDest = 'dist/images';
 var sassSrc = 'src/sass/**/*.{sass,scss}';
 var sassFile = 'src/sass/layout.scss';
 var cssDest = 'dist/css';
-var customjs = 'src/js/scripts.js';
 var jsSrc = 'src/js/**/*.js';
-var jsDest = 'dist/js/';
+var jsDest = 'dist/js';
 var markupSrc = 'src/*.php';
-var markupDest = 'dist/*.php';
+var markupDest = 'dist';
 
 /* 
 
@@ -159,19 +158,18 @@ SCRIPTS
 */
 
 var currentDate   = util.date(new Date(), 'dd-mm-yyyy HH:ss');
-var pkg       = require('./package.json');
-var banner      = '/*! <%= pkg.name %> <%= currentDate %> - <%= pkg.author %> */\n';
+var pkg           = require('./package.json');
+var banner        = '/*! <%= pkg.name %> <%= currentDate %> - <%= pkg.author %> */\n';
 
 gulp.task('js', function() {
 
       gulp.src(
         [
-          'js/src/jquery-1.11.1.js',
-          'js/src/html5-3.6-respond-1.1.0.min.js',
-          'js/src/scripts.js'
+          jsSrc + '/jquery-1.11.1.js',
+          jsSrc + '/html5-3.6-respond-1.1.0.min.js',
+          jsSrc + '/scripts.js'
         ])
         .pipe(concat('all.js'))
-
         .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
         .pipe(jshint.reporter('default'))
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
@@ -244,7 +242,7 @@ BUILD
 */
 
 gulp.task('build', function(cb) {
-  runSequence('sass', 'images', cb);
+  runSequence('sass', 'js', 'minify-html', 'images', cb);
 });
 
 /* 
@@ -256,6 +254,7 @@ gulp.task('default', function(cb) {
     runSequence(
     'images',
     'sass',
+    'js',
     'minify-html',
     'browserSync',
     'watch',
