@@ -23,6 +23,7 @@ var pagespeed   = require('psi');
 var jshint      = require('gulp-jshint');
 var minifyhtml  = require('gulp-htmlmin');
 var exec        = require('gulp-exec');
+var runSequence = require('run-sequence');
 
 /* 
 
@@ -53,15 +54,16 @@ FILE PATHS
 */
 
 var projectName = 'modern-html5-boilerplate'
-var imgSrc = 'images/*.{png,jpg,jpeg,gif}';
-var imgDest = 'images/optimized';
-var sassSrc = 'sass/**/*.{sass,scss}';
-var sassFile = 'sass/layout.scss';
-var cssDest = 'css';
-var customjs = 'js/scripts.js';
-var jsSrc = 'js/src/**/*.js';
-var jsDest = 'js/';
+var imgSrc = 'src/images/*.{png,jpg,jpeg,gif}';
+var imgDest = 'dist/images';
+var sassSrc = 'src/sass/**/*.{sass,scss}';
+var sassFile = 'src/sass/layout.scss';
+var cssDest = 'dist/css';
+var customjs = 'src/js/scripts.js';
+var jsSrc = 'src/js/**/*.js';
+var jsDest = 'dist/js/';
 var markupSrc = 'src/*.php';
+var markupDest = 'dist/*.php';
 
 /* 
 
@@ -193,7 +195,7 @@ gulp.task('minify-html', function() {
       minifyJS: true,
       minifyCSS: true
     }))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest(markupDest))
     .pipe(reload);
 });
 
@@ -234,4 +236,30 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(imgSrc, ['images']);
   gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
   gulp.watch(jsSrc, ['js', browserSync.reload]);
+});
+
+/* 
+BUILD
+=====
+*/
+
+gulp.task('build', function(cb) {
+  runSequence('sass', 'images', cb);
+});
+
+/* 
+DEFAULT
+=======
+*/
+
+gulp.task('default', function(cb) {
+    runSequence(
+    'images',
+    'sass',
+    'minify-html',
+    'browserSync',
+    'watch',
+    'refresh',
+    cb
+    );
 });
