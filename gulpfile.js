@@ -24,28 +24,8 @@ var jshint      = require('gulp-jshint');
 var minifyhtml  = require('gulp-htmlmin');
 var exec        = require('gulp-exec');
 var runSequence = require('run-sequence');
-
-/* 
-
-ERROR HANDLING
-==============
-*/
-
-var handleErrors = function() {
-module.exports = function() {
-
-  var args = Array.prototype.slice.call(arguments);
-
-  // Send error to notification center with gulp-notify
-  notify.onError({
-    title: "Compile Error",
-    message: "<%= error.message %>"
-  }).apply(this, args);
-
-  // Keep gulp from hanging on this task
-  this.emit('end');
-};
-};
+var plumber     = require('gulp-plumber');
+var map         = require('map-stream');
 
 /* 
 
@@ -59,7 +39,7 @@ var imgDest = 'dist/images';
 var sassSrc = 'src/sass/**/*.{sass,scss}';
 var sassFile = 'src/sass/layout.scss';
 var cssDest = 'dist/css';
-var jsSrc = 'src/js/**/*.js';
+var jsSrc = 'src/js';
 var jsDest = 'dist/js';
 var markupSrc = 'src/*.php';
 var markupDest = 'dist';
@@ -79,7 +59,7 @@ gulp.task('browserSync', function () {
     // declare files to watch + look for files in assets directory (from watch task)
     var files = [
     cssDest + '/**/*.{css}',
-    jsSrc,
+    jsSrc + '/**/*.js',
     imgDest + '/*.{png,jpg,jpeg,gif}',
     markupSrc
     ];
@@ -118,17 +98,25 @@ gulp.task('sass', function() {
     compass: false,
     bundleExec: true,
     sourcemap: false,
-    style: 'compressed'
+    style: 'compressed',
+    debugInfo: true,
+    lineNumbers: true,
+    errLogToConsole: true,
+    onSuccess: function(){
+      notify().write({ message: "SCSS Compiled successfully!" });
+    },
+    onError: function(err) {
+        util.beep();
+        return notify().write(err);
+    }
   })) 
 
-  .on('error', handleErrors)
-  .on('error', util.log)
-  .on('error', util.beep)
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
   .pipe(gulp.dest(cssDest))
-  .pipe(reload({stream:true}));
+  .pipe(reload({stream:true}))
+
   });
 
 
@@ -167,13 +155,15 @@ gulp.task('js', function() {
         [
           jsSrc + '/jquery-1.11.1.js',
           jsSrc + '/html5-3.6-respond-1.1.0.min.js',
-          jsSrc + '/scripts.js'
+          jsSrc + '/scripts.js',
         ])
+        .pipe(plumber())
         .pipe(concat('all.js'))
-        .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
-        .pipe(jshint.reporter('default'))
+        .pipe(uglify({preserveComments: false, compress: true, mangle: true})
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
-        .pipe(gulp.dest(jsDest));
+        .pipe(jshint.reporter('default'))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest(jsDest)));
 });
 
 
@@ -233,7 +223,7 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(cssDest, ['refresh']);
   gulp.watch(imgSrc, ['images']);
   gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
-  gulp.watch(jsSrc, ['js', browserSync.reload]);
+  gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
 });
 
 /* 
