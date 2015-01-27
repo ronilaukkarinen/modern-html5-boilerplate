@@ -50,7 +50,7 @@ BROWSERSYNC
 ===========
 */
 
-var devEnvironment = 'modern-html5-boilerplate.dev'
+var devEnvironment = projectName + '.dev'
 var hostname = '192.168.1.242' // Your IP address here
 var localURL = 'http://' + devEnvironment;
 
