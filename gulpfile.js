@@ -153,7 +153,7 @@ gulp.task('js', function() {
 
       gulp.src(
         [
-          jsSrc + '/jquery-1.11.1.js',
+          jsSrc + '/jquery.js',
           jsSrc + '/html5-3.6-respond-1.1.0.min.js',
           jsSrc + '/scripts.js',
         ])
