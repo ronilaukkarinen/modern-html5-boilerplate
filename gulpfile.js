@@ -20,12 +20,8 @@ var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
-var jshint      = require('gulp-jshint');
 var minifyhtml  = require('gulp-htmlmin');
-var exec        = require('gulp-exec');
 var runSequence = require('run-sequence');
-var plumber     = require('gulp-plumber');
-var map         = require('map-stream');
 
 /* 
 
@@ -157,13 +153,10 @@ gulp.task('js', function() {
           jsSrc + '/html5-3.6-respond-1.1.0.min.js',
           jsSrc + '/scripts.js',
         ])
-        .pipe(plumber())
         .pipe(concat('all.js'))
-        .pipe(uglify({preserveComments: false, compress: true, mangle: true})
+        .pipe(uglify({preserveComments: false, compress: true, mangle: true}).on('error',function(e){console.log('\x07',e.message);return this.end();}))
         .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
-        .pipe(jshint.reporter('default'))
-        .pipe(plumber.stop())
-        .pipe(gulp.dest(jsDest)));
+        .pipe(gulp.dest(jsDest));
 });
 
 
