@@ -90,6 +90,8 @@
 
         </div>
 
+    </div>
+
         <script src="js/all.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -101,7 +103,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-
-    </div>
+        
     </body>
 </html>
