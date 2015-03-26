@@ -1,8 +1,8 @@
 @import "../../bower_components/font-awesome/scss/font-awesome";
-@import "config";
-@import "jeet/index";
-@import "main";
+@import "../../bower_components/jeet/scss/jeet/index";
 @import "../../bower_components/normalize-scss/normalize";
+@import "config";
+@import "main";
 @import "knife/index";
 @import "mixins";
 

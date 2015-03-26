@@ -6,6 +6,8 @@
         "respond-minmax": "*",
         "html5shiv": "*",
         "font-awesome": "*",
-        "normalize-scss": "*"
+        "normalize-scss": "*",
+        "knife": "*",
+        "jeet": "*"
     }
 }
