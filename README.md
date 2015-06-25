@@ -2,6 +2,8 @@
 
 In need of a simple landing pages or static websites? Then Modern HTML5 Boilerplate might be just for you. This is just like [HTML5 Boilerplate](https://html5boilerplate.com/) but to use with modern development tools like [Gulp](http://gulpjs.com/).
 
+![](https://raw.githubusercontent.com/ronilaukkarinen/modern-html5-boilerplate/master/screenshot.png "Screenshot")
+
 ## Features
 
 - Based on [HTML5 Boilerplate v4.3.0](https://html5boilerplate.com/)
@@ -19,6 +21,9 @@ In need of a simple landing pages or static websites? Then Modern HTML5 Boilerpl
 4. `npm install` to install them
 5. `npm update` to update them
 6. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
-7. `gulp watch` and start coding your landing page
+7. Run `bower install` to install dependencies from Bower
+8. `gulp watch` and start coding your static website (you might want to change meta tags and `_config.scss` variables first)
 
-Have fun!
+The main SCSS file is `src/sass/layout/layout.scss`.
+
+**Have fun!**
