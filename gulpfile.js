@@ -8,8 +8,8 @@ var changed     = require('gulp-changed');
 var gulp        = require('gulp');
 var imagemin    = require('gulp-imagemin');
 var sass        = require('gulp-sass');
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+var sourcemaps  = require('gulp-sourcemaps');
+var browserSync = require('browser-sync').create();
 var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
 var minifycss   = require('gulp-minify-css');
@@ -22,6 +22,40 @@ var pixrem      = require('gulp-pixrem');
 var pagespeed   = require('psi');
 var minifyhtml  = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
+var exec        = require('child_process').exec;
+
+
+/* 
+
+ERROR HANDLING
+==============
+*/
+
+var beep = function() {
+  var os = require('os');
+  var file = '/Users/rolle/gulp_error.wav';
+  if (os.platform() === 'linux') {
+    // linux
+    exec("aplay " + file);
+  } else {
+    // mac
+    console.log("afplay -v 3 " + file);
+    exec("afplay -v 3 " + file);
+  }
+};
+
+var handleError = function(task) {
+  return function(err) {
+    beep();
+    
+      notify.onError({
+        message: task + ' failed, check the logs..',
+        sound: false
+      })(err);
+    
+    util.log(util.colors.bgRed(task + ' error:'), util.colors.red(err));
+  };
+};
 
 /* 
 
@@ -29,7 +63,6 @@ FILE PATHS
 ==========
 */
 
-var projectName = 'modern-html5-boilerplate'
 var imgSrc = 'src/images/*.{png,jpg,jpeg,gif}';
 var imgDest = 'dist/images';
 var sassSrc = 'src/sass/**/*.{sass,scss}';
@@ -46,28 +79,22 @@ BROWSERSYNC
 ===========
 */
 
-var devEnvironment = projectName + '.dev'
-var hostname = '192.168.1.242' // Your IP address here
-var localURL = 'http://' + devEnvironment;
+gulp.task('browserSync', function() {
 
-gulp.task('browserSync', function () {
-
-    // declare files to watch + look for files in assets directory (from watch task)
     var files = [
-    cssDest + '/**/*.{css}',
-    jsSrc + '/**/*.js',
-    imgDest + '/*.{png,jpg,jpeg,gif}',
-    markupSrc
+      cssDest + '/**/*.{css}',
+      jsSrc + '/**/*.js',
+      imgDest + '/*.{png,jpg,jpeg,gif}',
+      markupSrc
     ];
 
     browserSync.init(files, {
-    proxy: localURL,
-    host: hostname,
-    agent: false,
-    browser: "Google Chrome Canary"
+        proxy: "PROJECTNAME.dev",
+        browser: "Google Chrome Canary",
+        notify: false
     });
-
 });
+
 
 /* 
 
@@ -77,41 +104,32 @@ RELOAD
 
 gulp.task('refresh', function() {
   gulp.src(cssDest)
-    .pipe(reload({stream:true}));
+    .pipe(browserSync.stream());
   });
 
 
 /* 
 
-SASS
-====
+STYLES
+======
 */
 
-gulp.task('sass', function() {
+gulp.task('styles', function() {
   gulp.src(sassFile)
 
-  .pipe(sass({
-    compass: false,
-    bundleExec: true,
-    sourcemap: false,
-    style: 'compressed',
-    debugInfo: true,
-    lineNumbers: true,
-    errLogToConsole: true,
-    onSuccess: function(){
-      notify().write({ message: "SCSS Compiled successfully!" });
-    },
-    onError: function(err) {
-        util.beep();
-        return notify().write(err);
-    }
-  })) 
+  .pipe(sourcemaps.init())
 
+  .pipe(sass({
+    outputStyle: 'compressed'
+  }))
+
+  .on('error', handleError('styles'))
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssDest))
-  .pipe(reload({stream:true}))
+  .pipe(browserSync.stream());
 
   });
 
@@ -192,7 +210,7 @@ Notes:
 */
 
 gulp.task('pagespeed', pagespeed.bind(null, {
-  url: 'http://' + projectName + '.fi',
+  url: 'http://yoursite.com',
   strategy: 'mobile'
 }));
 
@@ -212,8 +230,7 @@ gulp.task('setWatch', function() {
 });
 
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
-  gulp.watch(sassSrc, ['sass']);
-  gulp.watch(cssDest, ['refresh']);
+  gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
   gulp.watch(markupSrc, ['minify-html', browserSync.reload]);
   gulp.watch(jsSrc + '/**/*.js', ['js', browserSync.reload]);
@@ -225,7 +242,7 @@ BUILD
 */
 
 gulp.task('build', function(cb) {
-  runSequence('sass', 'js', 'minify-html', 'images', cb);
+  runSequence('styles', 'js', 'minify-html', 'images', cb);
 });
 
 /* 
@@ -236,7 +253,7 @@ DEFAULT
 gulp.task('default', function(cb) {
     runSequence(
     'images',
-    'sass',
+    'styles',
     'js',
     'minify-html',
     'browserSync',
