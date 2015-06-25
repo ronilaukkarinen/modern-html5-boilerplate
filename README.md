@@ -1,23 +1,24 @@
 # Modern HTML5 Boilerplate
 
-This is a [HTML5 Boilerplate](https://html5boilerplate.com/) to use with [Gulp](http://gulpjs.com/).
+In need of a simple landing pages or static websites? Then Modern HTML5 Boilerplate might be just for you. This is just like [HTML5 Boilerplate](https://html5boilerplate.com/) but to use with modern development tools like [Gulp](http://gulpjs.com/).
 
 ## Features
 
-- [HTML5 Boilerplate v4.3.0](https://html5boilerplate.com/)
-- [Gulp](http://gulpjs.com/)
-- [SCSS](http://sass-lang.com/) / libsass
-- [Font-Awesome v4.2.0](http://fortawesome.github.io/Font-Awesome/)
-- [Jeet Grid](http://jeet.gs/)
-- Automatic HTML/PHP/JS/CSS minification, uglify, combine, compress and concat
+- Based on [HTML5 Boilerplate v4.3.0](https://html5boilerplate.com/)
+- Automatic HTML/PHP/JS/CSS minification, uglify, combine, compress and concat with [Gulp](http://gulpjs.com/)
+- Stylesheet language: [SCSS](http://sass-lang.com/) (libsass)
+- Glyph-icons with [Font-Awesome v4.2.0](http://fortawesome.github.io/Font-Awesome/)
+- Flexible SCSS grid: [Jeet Grid](http://jeet.gs/)
 - Typographic modular scale with [knife](https://github.com/Pushplaybang/knife)
 
 ## Installation
 
 1. `git clone` this repo and cd to directory
-2. `npm-check-updates -u` to update Node.JS modules
-3. `npm install` to install them
-4. `npm update` to update them
-5. `gulp watch` and start coding your landing page
+2. If you add this to git, remember to remove `.git` folder with `rm -rf .git`
+3. `npm-check-updates -u` to update Node.JS modules (you need [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) for this)
+4. `npm install` to install them
+5. `npm update` to update them
+6. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
+7. `gulp watch` and start coding your landing page
 
 Have fun!
