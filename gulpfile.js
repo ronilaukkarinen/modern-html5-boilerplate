@@ -219,7 +219,7 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
   gulp.watch(markupSrc, ['minify-html']).on('change', browserSync.reload);
-  gulp.watch(jsSrc + '/**/*.js').on('change', browserSync.reload);
+  gulp.watch(jsSrc + '/**/*.js', ['js']).on('change', browserSync.reload);
 });
 
 /* 
