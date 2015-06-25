@@ -66,7 +66,7 @@ FILE PATHS
 var imgSrc = 'src/images/*.{png,jpg,jpeg,gif}';
 var imgDest = 'dist/images';
 var sassSrc = 'src/sass/**/*.{sass,scss}';
-var sassFile = 'src/sass/layout.scss';
+var sassFile = 'src/sass/layout/layout.scss';
 var cssDest = 'dist/css';
 var jsSrc = 'src/js';
 var jsDest = 'dist/js';
@@ -89,24 +89,11 @@ gulp.task('browserSync', function() {
     ];
 
     browserSync.init(files, {
-        proxy: "PROJECTNAME.dev",
+        proxy: "modern-html5-boilerplate.dev",
         browser: "Google Chrome Canary",
         notify: false
     });
 });
-
-
-/* 
-
-RELOAD
-====
-*/
-
-gulp.task('refresh', function() {
-  gulp.src(cssDest)
-    .pipe(browserSync.stream());
-  });
-
 
 /* 
 
@@ -258,7 +245,6 @@ gulp.task('default', function(cb) {
     'minify-html',
     'browserSync',
     'watch',
-    'refresh',
     cb
     );
 });
