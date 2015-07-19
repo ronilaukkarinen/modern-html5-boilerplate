@@ -23,7 +23,6 @@ var minifyhtml  = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var exec        = require('child_process').exec;
 
-
 /* 
 
 ERROR HANDLING
@@ -81,15 +80,14 @@ BROWSERSYNC
 gulp.task('browserSync', function() {
 
     var files = [
-      cssDest + '/**/*.{css}',
-      jsSrc + '/**/*.js',
       imgDest + '/*.{png,jpg,jpeg,gif}',
+      jsSrc + '/**/*.js',
       markupSrc
     ];
 
     browserSync.init(files, {
         proxy: "modern-html5-boilerplate.dev",
-        browser: "Google Chrome Canary",
+        browser: "Google Chrome",
         notify: false
     });
 });
@@ -103,8 +101,6 @@ STYLES
 gulp.task('styles', function() {
   gulp.src(sassFile)
 
-  .pipe(sourcemaps.init())
-
   .pipe(sass({
     outputStyle: 'compressed'
   }))
@@ -113,7 +109,6 @@ gulp.task('styles', function() {
   .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
-  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssDest))
   .pipe(browserSync.stream());
 
@@ -160,7 +155,6 @@ gulp.task('js', function() {
         .pipe(gulp.dest(jsDest));
 });
 
-
 /* 
 
 MARKUP
@@ -190,39 +184,13 @@ Notes:
      that change within the directory it's serving from
 */
 
-gulp.task('setWatch', function() {
-  global.isWatching = true;
-});
+// Run the JS task followed by a reload
+gulp.task('js-watch', ['js'], browserSync.reload);
 
-gulp.task('watch', ['setWatch', 'browserSync'], function() {
+gulp.task('watch', ['browsersync'], function() {
+
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(markupSrc, ['minify-html']).on('change', browserSync.reload);
-  gulp.watch(jsSrc + '/**/*.js', ['js']).on('change', browserSync.reload);
-});
-
-/* 
-BUILD
-=====
-*/
-
-gulp.task('build', function(cb) {
-  runSequence('styles', 'js', 'minify-html', 'images', cb);
-});
-
-/* 
-DEFAULT
-=======
-*/
-
-gulp.task('default', function(cb) {
-    runSequence(
-    'images',
-    'styles',
-    'js',
-    'minify-html',
-    'browserSync',
-    'watch',
-    cb
-    );
+  gulp.watch(markupSrc, ['minify-html']);
+  gulp.watch(jsSrc + '/**/*.js', ['js-watch']);
 });
