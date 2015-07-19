@@ -19,7 +19,6 @@ var concat      = require('gulp-concat');
 var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
-var pagespeed   = require('psi');
 var minifyhtml  = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var exec        = require('child_process').exec;
@@ -120,13 +119,11 @@ gulp.task('styles', function() {
 
   });
 
-
 /* 
 
 IMAGES
 ======
 */
-
 
 gulp.task('images', function() {
   var dest = imgDest;
@@ -138,7 +135,6 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imgDest));
 
 });
-
 
 /* 
 
@@ -183,23 +179,6 @@ gulp.task('minify-html', function() {
     }))
     .pipe(gulp.dest(markupDest))
 });
-
-/*
-
-PAGESPEED
-=====
-
-Notes:
-   - This runs Google PageSpeed Insights just like here http://developers.google.com/speed/pagespeed/insights/
-   - You can use Google Developer API key if you have one, see: http://goo.gl/RkN0vE
-
-*/
-
-gulp.task('pagespeed', pagespeed.bind(null, {
-  url: 'http://yoursite.com',
-  strategy: 'mobile'
-}));
-
 
 /*
 
