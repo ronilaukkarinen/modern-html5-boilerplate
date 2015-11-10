@@ -88,7 +88,7 @@ gulp.task('browserSync', function() {
     browserSync.init(files, {
         proxy: "modern-html5-boilerplate.dev",
         browser: "Google Chrome",
-        notify: false
+        notify: true
     });
 });
 

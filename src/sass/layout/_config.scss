@@ -29,24 +29,24 @@ $responsivenav: 872px; /* set to navigation width */
 }
 
 html { 
-	box-sizing:border-box; 
+	box-sizing: border-box; 
 }
 
 *, *:before, *:after { 
-	box-sizing:inherit; 
+	box-sizing: inherit; 
 }
 
 img { 
-	box-sizing:content-box; 
+	box-sizing: content-box; 
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family:$headingfont;
+	font-family: $headingfont;
 	color: $maincolor;
 }
 
 p, ul, ol, dl, span, small, blockquote {
-	font-family:$mainfont;
+	font-family: $mainfont;
 	color: $textcolor;
 }
 

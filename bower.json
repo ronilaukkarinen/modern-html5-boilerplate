@@ -8,7 +8,7 @@
         "font-awesome": "*",
         "knife": "*",
         "jeet": "*",
-        "sanitize-css": "*",
+        "normalize-scss": "*",
         "jeet": "*"
     }
 }
