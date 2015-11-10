@@ -9,6 +9,9 @@
         "knife": "*",
         "jeet": "*",
         "normalize-scss": "*",
-        "jeet": "*"
+        "jeet": "*",
+        "sass-web-fonts": "*",
+        "typographic": "*",
+        "sass-rem": "*"
     }
 }

@@ -5,16 +5,14 @@ button,
 input,
 select,
 textarea {
-    color: $textcolor;
+    color: $color__text;
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
     text-shadow: none;
 }
 
@@ -56,10 +54,6 @@ textarea {
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
 
-body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
-}
-
 .wrapper {
     width: 90%;
     margin: 0 5%;
@@ -68,7 +62,7 @@ body {
 .header-container,
 .footer-container,
 .main aside {
-    background: $maincolor;
+    background: $color__main;
 }
 
 .title {
@@ -82,6 +76,7 @@ body {
 nav ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 nav a {
@@ -94,7 +89,7 @@ nav a {
     font-weight: bold;
 
     color: white;
-    background: darken($maincolor,10%);
+    background: darken($color__main,10%);
 }
 
 nav a:hover,
@@ -136,7 +131,7 @@ nav a:hover {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: $container-mobile) {
+@media only screen and (min-width: $container__mobile) {
 
 /* ====================
     INTERMEDIATE: Menu
@@ -171,7 +166,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width: $container-ipad) {
+@media only screen and (min-width: $container__ipad) {
 
 /* ============
     WIDE: Menu
@@ -208,7 +203,7 @@ nav a:hover {
    =============== */
 
     .wrapper {
-        width: $container-desktop; /* 1140px - 10% for margins */
+        width: $container__desktop; /* 1140px - 10% for margins */
         margin: 0 auto;
     }
 }

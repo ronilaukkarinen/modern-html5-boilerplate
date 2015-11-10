@@ -1,63 +1,24 @@
 // Colors (more: @link http://www.flatuicolorpicker.com/)
-$maincolor: #2C3E50; // Madison
-$altcolor: #34495E; // Pickled Bluewood
-$textcolor: #1C1C1B;
+$color__main: #2C3E50; // Madison
+$color__alt: #34495E; // Pickled Bluewood
+$color__text: #1C1C1B;
 
 // Set up the fonts in src/sass/typography/webfonts.scss
-$mainfont: "Lato", Helvetica, Arial;
-$headingfont: "Lato", Helvetica, Arial;
-$themeoptions-base-font-size: 16px;
+$font__main: "Lato", "Helvetica Neue", Helvetica, Arial;
+$font__headings: "Lato", "Helvetica Neue", Helvetica, Arial;
+$font__size__min: 19px;
+$font__size__base: 22px;
+$font__size__baseline: $font__size__base;
 
 // Layout stuff
 $defaultpadding: 20px;
 
 // Breakpoints
-$layout-max-width: 1600px;
-$container-tv: 1824px; /* default: 1824px */
-$container-large: 1224px; /* default: 1224px */
-$container-desktop: 960px; /* default: 1170px, html5 boilerplate default: 1026px */
-$container-landscape-ipad: 960px; /* default: 970px */
-$container-ipad: 768px; /* default: 768px */
-$container-mobile: 480px; /* default: 480px */
+$layout__max-width: 1600px;
+$container__tv: 1824px; /* default: 1824px */
+$container__large: 1224px; /* default: 1224px */
+$container__desktop: 960px; /* default: 1170px, html5 boilerplate default: 1026px */
+$container__landscape-ipad: 960px; /* default: 970px */
+$container__ipad: 768px; /* default: 768px */
+$container__mobile: 480px; /* default: 480px */
 $responsivenav: 872px; /* set to navigation width */
-
-// Basics
-#page {
-	max-width: $layout-max-width;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-html { 
-	box-sizing: border-box; 
-}
-
-*, *:before, *:after { 
-	box-sizing: inherit; 
-}
-
-img { 
-	box-sizing: content-box; 
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: $headingfont;
-	color: $maincolor;
-}
-
-p, ul, ol, dl, span, small, blockquote {
-	font-family: $mainfont;
-	color: $textcolor;
-}
-
-a {
-	color: $altcolor;
-	
-	&:link, &:visited, &:focus {
-		color: $altcolor;
-	}
-
-	&:hover {
-		color: darken($altcolor,10%);
-	}
-}

@@ -29,26 +29,13 @@ ERROR HANDLING
 ==============
 */
 
-var beep = function() {
-  var os = require('os');
-  var file = '/Users/rolle/gulp_error.wav';
-  if (os.platform() === 'linux') {
-    // linux
-    exec("aplay " + file);
-  } else {
-    // mac
-    console.log("afplay -v 3 " + file);
-    exec("afplay -v 3 " + file);
-  }
-};
 
 var handleError = function(task) {
   return function(err) {
-    beep();
     
       notify.onError({
         message: task + ' failed, check the logs..',
-        sound: false
+        sound: true
       })(err);
     
     util.log(util.colors.bgRed(task + ' error:'), util.colors.red(err));

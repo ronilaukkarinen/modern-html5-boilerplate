@@ -9,9 +9,9 @@ In need of a simple landing pages or static websites? Then Modern HTML5 Boilerpl
 - Based on [HTML5 Boilerplate v4.3.0](https://html5boilerplate.com/)
 - Automatic HTML/PHP/JS/CSS minification, uglify, combine, compress and concat with [Gulp](http://gulpjs.com/)
 - Stylesheet language: [SCSS](http://sass-lang.com/) (libsass)
-- Glyph-icons with [Font-Awesome v4.2.0](http://fortawesome.github.io/Font-Awesome/)
+- Glyph-icons with [Font-Awesome v4.4.0](http://fortawesome.github.io/Font-Awesome/)
 - Flexible SCSS grid: [Jeet Grid](http://jeet.gs/)
-- Typographic modular scale with [knife](https://github.com/Pushplaybang/knife)
+- Typographic modular scale with [typographic](https://github.com/corysimmons/typographic)
 
 ## Installation
 
