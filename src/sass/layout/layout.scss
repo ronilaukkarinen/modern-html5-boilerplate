@@ -1,73 +1,87 @@
-/*--------------------------------------------------------------
-# Reset
---------------------------------------------------------------*/
-@import "../../../bower_components/normalize-scss/normalize";
+// --------------------------------------------------------------
+// Reset
+// --------------------------------------------------------------
+@import '../../../bower_components/normalize-scss/normalize';
 
-/*--------------------------------------------------------------
-# Glyph icons
---------------------------------------------------------------*/
-@import "../../../bower_components/font-awesome/scss/font-awesome";
+// --------------------------------------------------------------
+// Glyph icons
+// --------------------------------------------------------------
+@import '../../../bower_components/font-awesome/scss/font-awesome';
 
-/*--------------------------------------------------------------
-# Grid
---------------------------------------------------------------*/
-@import "../../../bower_components/jeet/scss/jeet/index";
+// --------------------------------------------------------------
+// Grid
+// --------------------------------------------------------------
+@import '../../../bower_components/jeet/scss/jeet/index';
 
-/*--------------------------------------------------------------
-# Layout
---------------------------------------------------------------*/
-@import "config";
-@import "boilerplate";
-@import "mixins";
+// --------------------------------------------------------------
+// Layout
+// --------------------------------------------------------------
+@import 'config';
+@import 'boilerplate';
+@import 'mixins';
 
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "../typography/index";
+// --------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------
+@import '../typography/index';
 
-/*--------------------------------------------------------------
-# Layout start >>>
---------------------------------------------------------------*/
-
+// --------------------------------------------------------------
+// Layout start >>>
+// --------------------------------------------------------------
 // Basics
 #page {
-    max-width: $layout__max-width;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: $layout__max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-html { 
-    box-sizing: border-box; 
+html {
+  box-sizing: border-box;
 }
 
-*, *:before, *:after { 
-    box-sizing: inherit; 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-img { 
-    box-sizing: content-box; 
+img {
+  box-sizing: content-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: $font__headings;
-    color: $color__main;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font__headings;
+  color: $color__main;
 }
 
-p, ul, ol, dl, span, small, blockquote {
-    font-family: $font__main;
-    color: $color__text;
+p,
+ul,
+ol,
+dl,
+span,
+small,
+blockquote {
+  font-family: $font__main;
+  color: $color__text;
 }
 
 a {
-    color: $color__alt;
-    
-    &:link, &:visited, &:focus {
-        color: $color__alt;
-    }
+  color: $color__alt;
 
-    &:hover {
-        color: darken($color__alt, 10%);
-    }
+  &:link,
+  &:visited,
+  &:focus {
+    color: $color__alt;
+  }
+
+  &:hover {
+    color: darken($color__alt, 10%);
+  }
 }
 
 body {
@@ -75,9 +89,9 @@ body {
 }
 
 nav {
-    li {
-        font-size: 0.7rem;
-    }
+  li {
+    font-size: .7rem;
+  }
 }
 
 .header-container {
@@ -104,7 +118,12 @@ nav {
     background: #f0f0f0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0;
   }
 
@@ -118,11 +137,10 @@ nav {
 }
 
 .footer-container {
-
   h3 {
     margin-top: 0;
   }
-  
+
   footer {
     * {
       color: #fff;

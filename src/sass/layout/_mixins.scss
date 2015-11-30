@@ -1,19 +1,17 @@
 @mixin background-cover() {
   background: {
     size: cover;
-	repeat: no-repeat;
-	position: center;
+	  repeat: no-repeat;
+	  position: center;
   }
-  background-size: cover;
 }
 
 @mixin background-auto() {
   background: {
     size: 100% auto;
-	repeat: no-repeat;
-	position:c enter;
+	  repeat: no-repeat;
+	  position: center;
   }
-  background-size:100% auto;
 }
 
 @mixin hiddentext() {
@@ -46,15 +44,4 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   transform-style: preserve-3d;
-}
-
-@mixin vertical-gradient($startColor: #555, $endColor: #333) {
-  background: $endColor; /* Old browsers */
-  background: -moz-linear-gradient(top,  $startColor 0%, $endColor 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop(100%, $endColor)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  $startColor 0%, $endColor 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  $startColor 0%, $endColor 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  $startColor 0%, $endColor 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  $startColor 0%, $endColor 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=0 ); /* IE6-9 */
 }

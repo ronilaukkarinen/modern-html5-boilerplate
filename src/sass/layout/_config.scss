@@ -1,7 +1,7 @@
 // Colors (more: @link http://www.flatuicolorpicker.com/)
-$color__main: #2C3E50; // Madison
-$color__alt: #34495E; // Pickled Bluewood
-$color__text: #1C1C1B;
+$color__main: #2c3e50; // Madison
+$color__alt: #34495e; // Pickled Bluewood
+$color__text: #1c1c1b;
 
 // Set up the fonts in src/sass/typography/webfonts.scss
 $font__main: "Lato", "Helvetica Neue", Helvetica, Arial;
@@ -15,10 +15,10 @@ $defaultpadding: 20px;
 
 // Breakpoints
 $layout__max-width: 1600px;
-$container__tv: 1824px; /* default: 1824px */
-$container__large: 1224px; /* default: 1224px */
-$container__desktop: 960px; /* default: 1170px, html5 boilerplate default: 1026px */
-$container__landscape-ipad: 960px; /* default: 970px */
-$container__ipad: 768px; /* default: 768px */
-$container__mobile: 480px; /* default: 480px */
-$responsivenav: 872px; /* set to navigation width */
+$container__tv: 1824px; // default: 1824px
+$container__large: 1224px; // default: 1224px
+$container__desktop: 960px; // default: 1170px, html5 boilerplate default: 1026px
+$container__landscape-ipad: 960px; // default: 970px
+$container__ipad: 768px; // default: 768px
+$container__mobile: 480px; // default: 480px
+$responsivenav: 872px; // set to navigation width
