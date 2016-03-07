@@ -19,10 +19,8 @@ In need of a simple landing pages or static websites? Then Modern HTML5 Boilerpl
 2. If you add this to git, remember to remove `.git` folder with `rm -rf .git`
 3. `npm-check-updates -u` to update Node.JS modules (you need [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) for this)
 4. `npm install` to install them
-5. `npm update` to update them
-6. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
-7. Run `bower install` to install dependencies from Bower
-8. `gulp watch` and start coding your static website (you might want to change meta tags and `_config.scss` variables first)
+5. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
+6. `gulp watch` and start coding your static website (you might want to change meta tags and `_config.scss` variables first)
 
 The main SCSS file is `src/sass/layout/layout.scss`.
 

@@ -1,17 +1,17 @@
 // --------------------------------------------------------------
 // Reset
 // --------------------------------------------------------------
-@import '../../../bower_components/normalize-scss/normalize';
+@import '../../../node_modules/normalize.css/normalize';
 
 // --------------------------------------------------------------
 // Glyph icons
 // --------------------------------------------------------------
-@import '../../../bower_components/font-awesome/scss/font-awesome';
+@import '../../../node_modules/font-awesome/scss/font-awesome';
 
 // --------------------------------------------------------------
 // Grid
 // --------------------------------------------------------------
-@import '../../../bower_components/jeet/scss/jeet/index';
+@import '../../../node_modules/jeet/scss/jeet/index';
 
 // --------------------------------------------------------------
 // Layout
@@ -28,7 +28,7 @@
 // --------------------------------------------------------------
 // Layout start >>>
 // --------------------------------------------------------------
-// Basics
+
 #page {
   max-width: $layout__max-width;
   margin-left: auto;

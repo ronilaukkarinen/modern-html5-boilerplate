@@ -1,30 +1,38 @@
 {
   "name": "yourprojectname",
-  "description": "yourprojectname powered modern-html5-boilerplate",
+  "description": "yourprojectname powered by modern-html5-boilerplate",
   "author": "Your Name",
   "devDependencies": {
-    "browser-sync": "^2.10.0",
+    "browser-sync": "^2.11.1",
     "exec": "0.2.1",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "3.1.0",
-    "gulp-cache": "0.4.1",
+    "gulp-cache": "0.4.2",
     "gulp-changed": "^1.3.0",
     "gulp-concat": "2.6.0",
     "gulp-header": "1.7.1",
-    "gulp-htmlmin": "1.2.0",
+    "gulp-htmlmin": "1.3.0",
     "gulp-imagemin": "^2.4.0",
-    "gulp-minify-css": "1.2.2",
+    "gulp-minify-css": "1.2.4",
     "gulp-notify": "^2.2.0",
     "gulp-pixrem": "^1.0.0",
-    "gulp-sass": "^2.1.0",
+    "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "1.5.1",
+    "gulp-uglify": "1.5.3",
     "gulp-util": "^3.0.7",
     "require-dir": "^0.3.0",
     "run-sequence": "1.1.5"
   },
   "dependencies": {
-    "backbone": "~1.2.3",
-    "jquery": "~2.1.4"
+    "backbone": "~1.3.1",
+    "font-awesome": "^4.5.0",
+    "html5shiv": "^3.7.3",
+    "jeet": "^6.1.2",
+    "jquery": "~2.2.1",
+    "normalize.css": "^3.0.3",
+    "typographic": "^2.9",
+    "sass-web-fonts": "^2.0.1",
+    "matchmedia": "^0.1.2",
+    "sass-rem": "1.2"
   }
 }

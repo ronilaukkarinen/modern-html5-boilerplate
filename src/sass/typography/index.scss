@@ -1,22 +1,22 @@
 // Import Pennman's mixin for Google Web Fonts.
-@import "../../../bower_components/sass-web-fonts/web-fonts";
+@import '../../../node_modules/sass-web-fonts/web-fonts';
 
 // Import Sass-boilerplate font-face mixin for custom webfonts.
-@import "fontface";
+@import 'fontface';
 
 // Declare actual webfonts in use.
-@import "webfonts";
+@import 'webfonts';
 
 // Import SASS-rem.
-@import "../../../bower_components/sass-rem/rem";
+@import '../../../node_modules/sass-rem/rem';
 $rem-baseline: $font__size__baseline;
 
 html {
-	@include rem-baseline;
+  @include rem-baseline;
 }
 
 // Import Typographic.
-@import "../../../bower_components/typographic/scss/typographic";
+@import '../../../node_modules/typographic/scss/typographic';
 
 // Typographic settings.
 $header-font-weight: 700;
@@ -26,30 +26,44 @@ $header-ratio: $golden;
 @include typographic();
 
 // Fix code line-height.
-big, code, small, sub, sup {
+big,
+code,
+small,
+sub,
+sup {
   line-height: inherit;
 }
 
 // Font smoothing options.
-body, html * {
-  font-smooth: always;
+body,
+html * {
   font-smoothing: antialiased;
   text-size-adjust: none;
-  text-rendering: optimizeLegibility;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 // Heading font stack to config.
-h1, h2, h3, h4, h5, h6 {
-	font-family: $font__headings;
-	color: $color__text;
-	line-height: 1.5;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font__headings;
+  color: $color__text;
+  line-height: 1.5;
 }
 
 // Text font stack according to config.
-p, ul, ol, dl, span, small, blockquote {
-	font-family: $font__main;
-	color: $color__text;
+p,
+ul,
+ol,
+dl,
+span,
+small,
+blockquote {
+  font-family: $font__main;
+  color: $color__text;
 }

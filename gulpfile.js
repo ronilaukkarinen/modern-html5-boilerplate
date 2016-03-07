@@ -1,4 +1,4 @@
-/* 
+/*
 
 REQUIRED STUFF
 ==============
@@ -23,7 +23,7 @@ var minifyhtml  = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var exec        = require('child_process').exec;
 
-/* 
+/*
 
 ERROR HANDLING
 ==============
@@ -32,17 +32,17 @@ ERROR HANDLING
 
 var handleError = function(task) {
   return function(err) {
-    
+
       notify.onError({
         message: task + ' failed, check the logs..',
         sound: true
       })(err);
-    
+
     util.log(util.colors.bgRed(task + ' error:'), util.colors.red(err));
   };
 };
 
-/* 
+/*
 
 FILE PATHS
 ==========
@@ -58,7 +58,7 @@ var jsDest = 'dist/js';
 var markupSrc = 'src/*.php';
 var markupDest = 'dist';
 
-/* 
+/*
 
 BROWSERSYNC
 ===========
@@ -79,7 +79,7 @@ gulp.task('browserSync', function() {
     });
 });
 
-/* 
+/*
 
 STYLES
 ======
@@ -101,7 +101,7 @@ gulp.task('styles', function() {
 
   });
 
-/* 
+/*
 
 IMAGES
 ======
@@ -118,7 +118,7 @@ gulp.task('images', function() {
 
 });
 
-/* 
+/*
 
 SCRIPTS
 =======
@@ -132,8 +132,7 @@ gulp.task('js', function() {
 
       gulp.src(
         [
-          'bower_components/jquery/dist/jquery.js',
-          'bower_components/respond-minmax/src/respond.js',
+          'node_modules/jquery/dist/jquery.js',
           jsSrc + '/scripts.js',
         ])
         .pipe(concat('all.js'))
@@ -142,7 +141,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest(jsDest));
 });
 
-/* 
+/*
 
 MARKUP
 =======
