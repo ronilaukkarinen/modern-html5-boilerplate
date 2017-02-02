@@ -50,11 +50,11 @@ FILE PATHS
 var imgSrc = 'src/images/*.{png,jpg,jpeg,gif}';
 var imgDest = 'dist/images';
 var sassSrc = 'src/sass/**/*.{sass,scss}';
-var sassFile = 'src/sass/layout/layout.scss';
+var sassFile = 'src/sass/base/global.scss';
 var cssDest = 'dist/css';
 var jsSrc = 'src/js';
 var jsDest = 'dist/js';
-var markupSrc = 'src/*.php';
+var markupSrc = 'dist/*.php';
 var markupDest = 'dist';
 
 /*

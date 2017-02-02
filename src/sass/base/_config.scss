@@ -1,0 +1,43 @@
+// Colors (more: @link http://www.flatuicolorpicker.com/)
+$color-main: #2c3e50; // Madison
+$color-alt: #34495e; // Pickled Bluewood
+$color-links: #34495e;
+$color-hover: #1c1c1b;
+$color-body: #1c1c1b;
+$color-headings: #333;
+$color-body-darker: #444;
+$color-grey: #dadfe1;
+$color-darkgrey: #6c7a89;
+$color-lightgrey: #8e8e8e;
+$color-dark: #1a1a1a;
+$color-almostblack: #020202;
+$color-fog: #b0b0b0;
+
+// Font settings
+// You can use these font stacks normally with `font-family: $font-sans;` for instance.`
+$font-base: 'Abhaya Libre', 'Helvetica Neue', Helvetica, sans-serif;
+$font-headings: 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
+$font-monospace: 'Menlo', 'Courier', monospace;
+
+// Font settings
+$font-min-size: 16px; // Minimum font size, on mobile (default: 16px)
+$font-max-size: 20px; // Maximum font size, on desktop (default: 21px)
+$font-base-line-height: 1.78; // Line height for paragraphs
+$font-base-line-height-elements: 1.68; // Line height for other elements like table cells and spans
+$headings-line-height-setup: force; // Force: all headings have same line height. Flexible: values are set separately in _typography.scss
+$headings-line-height-forced: 1.22; // This is effective only if force is chosen in $headings-line-height-setup
+$headings-weight: 800; // Default title weight. Usually 700 or 900 works pretty well
+$headings-scale: large; // Change this as a base for your project or create your own in _typography.scss.
+
+// Layout stuff
+$defaultpadding: 20px;
+
+// Breakpoints
+$layout-max-width: 100%;
+$container-tv: 1824px; // default: 1824px
+$container-large: 1224px; // default: 1224px
+$container-desktop: 960px; // default: 1170px, html5 boilerplate default: 1026px
+$container-landscape-ipad: 960px; // default: 970px
+$container-ipad: 768px; // default: 768px
+$container-mobile: 480px; // default: 480px
+$responsivenav: 872px; // set to navigation width
