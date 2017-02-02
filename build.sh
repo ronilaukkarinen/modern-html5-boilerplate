@@ -22,6 +22,7 @@ echo "${yellow}Cleaning up...${txtreset}"
 cd "${PROJECTPATH}"
 rm README.md
 rm LICENSE.md
+rm build.sh
 rm -rf .git
 echo "server {
     listen 80;
@@ -46,6 +47,7 @@ cd "${PROJECTPATH}"
 echo "${yellow}Updating npm packages...${txtreset}"
 npm-check-updates -u
 echo "${yellow}Installing npm packages...${txtreset}"
+npm install
 echo "${boldgreen}All done!${txtreset}"
 echo "${yellow}Opening project in atom...${txtreset}"
 atom $PROJECTPATH
