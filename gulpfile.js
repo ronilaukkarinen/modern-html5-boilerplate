@@ -19,7 +19,6 @@ var concat      = require('gulp-concat');
 var util        = require('gulp-util');
 var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
-var minifyhtml  = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var exec        = require('child_process').exec;
 
@@ -104,7 +103,7 @@ gulp.task('styles', function() {
   }))
 
   .on('error', handleError('styles'))
-  .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')) //adds browser prefixes (eg. -webkit, -moz, etc.)
+  .pipe(prefix('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
   .pipe(minifycss({keepBreaks:false,keepSpecialComments:0,}))
   .pipe(pixrem())
   .pipe(gulp.dest(cssDest))
@@ -154,25 +153,6 @@ gulp.task('js', function() {
 
 /*
 
-MARKUP
-=======
-*/
-
-gulp.task('minify-html', function() {
-  gulp.src(markupSrc)
-    .pipe(minifyhtml({
-      collapseWhitespace: true,
-      removeComments: false,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      minifyJS: true,
-      minifyCSS: true
-    }))
-    .pipe(gulp.dest(markupDest))
-});
-
-/*
-
 WATCH
 =====
 
@@ -188,6 +168,5 @@ gulp.task('watch', ['browserSync'], function() {
 
   gulp.watch(sassSrc, ['styles']);
   gulp.watch(imgSrc, ['images']);
-  gulp.watch(markupSrc, ['minify-html']);
   gulp.watch(jsSrc + '/**/*.js', ['js-watch']);
 });
