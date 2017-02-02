@@ -1,17 +1,15 @@
 # Modern HTML5 Boilerplate
 
-In need of a simple landing pages or static websites? Then Modern HTML5 Boilerplate might be just for you. This is just like [HTML5 Boilerplate](https://html5boilerplate.com/) but to use with modern development tools like [Gulp](http://gulpjs.com/).
+In need of a simple landing pages or static websites? Then Modern HTML5 Boilerplate might be just for you.
 
-![](https://raw.githubusercontent.com/ronilaukkarinen/modern-html5-boilerplate/master/screenshot.png "Screenshot")
+![](https://dl.dropboxusercontent.com/u/18447700/modern17.png "Screenshot")
 
 ## Features
 
-- Based on [HTML5 Boilerplate v4.3.0](https://html5boilerplate.com/)
-- Automatic HTML/PHP/JS/CSS minification, uglify, combine, compress and concat with [Gulp](http://gulpjs.com/)
+- Automatic JS/CSS minification, uglify, combine, compress and concat with [Gulp](http://gulpjs.com/)
 - Stylesheet language: [SCSS](http://sass-lang.com/) (libsass)
-- Glyph-icons with [Font-Awesome v4.4.0](http://fortawesome.github.io/Font-Awesome/)
 - Flexible SCSS grid: [Jeet Grid](http://jeet.gs/)
-- Typographic modular scale with [typographic](https://github.com/corysimmons/typographic)
+- Responsive typography with viewport units
 
 ## Installation
 
@@ -22,6 +20,36 @@ In need of a simple landing pages or static websites? Then Modern HTML5 Boilerpl
 5. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
 6. `gulp watch` and start coding your static website (you might want to change meta tags and `_config.scss` variables first)
 
-The main SCSS file is `src/sass/layout/layout.scss`.
+Start with `src/sass/layout/_landing.scss`.
+
+Basic HTML structure goes like this:
+
+````
+<div class="slide slide-something">
+  <div class="container">
+    <h1>This is a container.</h1>
+    <p>This is a container text.</p>
+  </div><!-- .container -->
+</div><!-- .slide -->
+````
+
+Where basic SCSS structure be like:
+
+````
+.slide {
+  &.slide-hero {
+    // Do something
+
+    .container {
+      // Do something
+
+      h1,
+      p {
+        color: #222;
+      }
+    }
+  }
+}
+````
 
 **Have fun!**
