@@ -23,15 +23,9 @@
     "run-sequence": "1.2.2"
   },
   "dependencies": {
-    "backbone": "~1.3.3",
-    "font-awesome": "^4.7.0",
-    "html5shiv": "^3.7.3",
     "jeet": "^7.1.0",
     "jquery": "~3.1.1",
     "normalize.css": "^5.0.0",
-    "typographic": "^3.0",
-    "sass-web-fonts": "^2.0.2",
-    "matchmedia": "^0.1.2",
-    "sass-rem": "1.2"
+    "sass-web-fonts": "^2.0.2"
   }
 }
