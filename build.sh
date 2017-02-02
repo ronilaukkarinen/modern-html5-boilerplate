@@ -28,7 +28,7 @@ echo "server {
     listen 80;
     #listen [::]:80 default ipv6only=on;
 
-    root /var/www/$PROJECTNAME;
+    root /var/www/$PROJECTNAME/dist;
     index index.html index.htm index.php;
 
     server_name $PROJECTNAME.dev www.$PROJECTNAME.dev;
