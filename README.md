@@ -13,8 +13,8 @@ In need of a simple landing pages or static websites? Then Modern HTML5 Boilerpl
 
 ## Installation
 
-1. `git clone` this repo and cd to directory
-2. If you add this to git, remember to remove `.git` folder with `rm -rf .git`
+1. `git clone https://github.com/ronilaukkarinen/modern-html5-boilerplate yourprojectname`
+2. If you add your project to git, remember to remove `.git` folder with `rm -rf .git`
 3. `npm-check-updates -u` to update Node.JS modules (you need [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) for this)
 4. `npm install` to install them
 5. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
