@@ -24,7 +24,7 @@ Start with `src/sass/layout/_landing.scss`.
 
 Basic HTML structure goes like this:
 
-````
+```` html
 <div class="slide slide-something">
   <div class="container">
     <h1>This is a container.</h1>
@@ -35,7 +35,7 @@ Basic HTML structure goes like this:
 
 Where basic SCSS structure be like:
 
-````
+```` scss
 .slide {
   &.slide-hero {
     // Do something
