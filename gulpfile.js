@@ -72,7 +72,7 @@ gulp.task('browserSync', function() {
     ];
 
     browserSync.init(files, {
-        proxy: "modern-html5-boilerplate.dev",
+        proxy: "modern-html5-boilerplate.test",
         browser: "Google Chrome",
         notify: true
     });

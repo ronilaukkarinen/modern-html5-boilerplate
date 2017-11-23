@@ -9,6 +9,37 @@ green=$(tput setaf 2)
 white=$(tput setaf 7)
 txtreset=$(tput sgr0)
 
+while true; do
+echo "${boldyellow}Which local environment you are using?${txtreset}
+
+Type:
+
+1 for marlin-vagrant: https://github.com/digitoimistodude/marlin-vagrant
+2 for native OS X: https://github.com/digitoimistodude/osx-lemp-setup
+"
+read choice
+
+echo
+case $choice in
+     1)
+      choice="marlin-vagrant"
+      localip="10.1.2.4"
+      break
+      # Choose $choice
+     ;;
+     2)
+      choice="osxlemp"
+      localip="127.0.0.1"
+      break
+      # Choose $choice
+     ;;   
+     *)
+     echo "${red}Please type, 1 or 2 only.${txtreset}
+     "
+     ;;
+esac
+done
+
 echo "${boldyellow}Project name in lowercase:${txtreset} "
 read -e PROJECTNAME
 PROJECTPATH="${HOME}/Projects/${PROJECTNAME}"
@@ -24,15 +55,16 @@ rm README.md
 rm LICENSE.md
 rm build.sh
 rm -rf .git
+
+if [ $choice == "marlin-vagrant" ]
+then
+
 echo "server {
     listen 80;
-    #listen [::]:80 default ipv6only=on;
-
     root /var/www/$PROJECTNAME/dist;
     index index.html index.htm index.php;
-
     server_name $PROJECTNAME.test www.$PROJECTNAME.test;
-    include hhvm.conf;
+    include php7.conf;
     include global/wordpress.conf;
 }" > "$HOME/Projects/marlin-vagrant/vhosts/$PROJECTNAME.test"
 
@@ -43,13 +75,33 @@ vagrant provision
 echo "${boldgreen}VM provisioned, local environment up and running.${txtreset}"
 echo "${yellow}Updating hosts file...${txtreset}"
 sudo -- sh -c "echo 10.1.2.4 ${PROJECTNAME}.test >> /etc/hosts"
+
+fi
+if [ $choice == "osxlemp" ] ;
+then
+
+sudo echo "server {
+    listen 80;
+    root /var/www/$PROJECTNAME/dist;
+    index index.html index.htm index.php;
+    server_name $PROJECTNAME.test www.$PROJECTNAME.test;
+    include php7.conf;
+    include global/wordpress.conf;
+}" > "/etc/nginx/sites-available/$PROJECTNAME.test"
+sudo ln -s /etc/nginx/sites-available/$PROJECTNAME.test /etc/nginx/sites-enabled/$PROJECTNAME.test
+echo "${boldgreen}Added vhost, $PROJECTNAME.test linked to sites-enabled.${txtreset}"
+echo "${yellow}Restarting nginx...${txtreset}"
+sudo brew services stop nginx
+sudo brew services start nginx
+echo "${boldgreen}nginx restarted, local environment up and running.${txtreset}"
+echo "${yellow}Updating hosts file...${txtreset}"
+sudo -- sh -c "echo 127.0.0.1 ${PROJECTNAME}.test >> /etc/hosts"
+
+fi
+
 cd "${PROJECTPATH}"
 echo "${yellow}Updating npm packages...${txtreset}"
 npm-check-updates -u
 echo "${yellow}Installing npm packages...${txtreset}"
 npm install
 echo "${boldgreen}All done!${txtreset}"
-echo "${yellow}Opening project in atom...${txtreset}"
-atom $PROJECTPATH
-echo "${yellow}Starting gulp...${txtreset}"
-gulp watch
