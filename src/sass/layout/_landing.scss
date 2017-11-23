@@ -1,59 +1,57 @@
-body {
-  .slide {
-    &.slide-hero {
-      text-align: center;
-      background: $color-main;
-      height: 100vh;
+.slide {
+  &.slide-hero {
+    text-align: center;
+    background: $color-main;
+    height: 100vh;
 
-      .container {
-        @include vertical-align();
+    .container {
+      @include vertical-align();
 
-        h1,
-        p {
-          color: #fff;
-        }
+      h1,
+      p {
+        color: #fff;
+      }
 
-        h1 {
-          margin-top: 0;
-          margin-bottom: 20px;
-        }
+      h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
 
-        p {
-          margin: 0;
-        }
+      p {
+        margin: 0;
       }
     }
   }
 }
 
-body {
-  .supported,
-  .unsupported {
-    display: none;
-  }
+// For demo purposes only
+.supported,
+.unsupported {
+  display: none;
+}
 
-  .supported {
-    @supports (display:grid) {
-      display: block;
-    }
-  }
-
-  .unsupported {
-    color: #d32f2f;
-
-    @supports not (display:grid) {
-      display: block;
-    }
-  }
-
-  .supports {
-    @supports not (display: grid) {
-      background-color: #ffcdd2;
-      border: 2px solid #d32f2f;
-    }
+.supported {
+  @supports (display:grid) {
+    display: block;
   }
 }
 
+.unsupported {
+  color: #d32f2f;
+
+  @supports not (display:grid) {
+    display: block;
+  }
+}
+
+.supports {
+  @supports not (display: grid) {
+    background-color: #ffcdd2;
+    border: 2px solid #d32f2f;
+  }
+}
+
+// Demo grid
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 3fr 1fr);
