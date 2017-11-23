@@ -31,18 +31,18 @@ echo "server {
     root /var/www/$PROJECTNAME/dist;
     index index.html index.htm index.php;
 
-    server_name $PROJECTNAME.dev www.$PROJECTNAME.dev;
+    server_name $PROJECTNAME.test www.$PROJECTNAME.test;
     include hhvm.conf;
     include global/wordpress.conf;
-}" > "$HOME/Projects/marlin-vagrant/vhosts/$PROJECTNAME.dev"
+}" > "$HOME/Projects/marlin-vagrant/vhosts/$PROJECTNAME.test"
 
-echo "${boldgreen}Added vhost, $PROJECTNAME.dev added to vagrant sites-enabled.${txtreset}"
+echo "${boldgreen}Added vhost, $PROJECTNAME.test added to vagrant sites-enabled.${txtreset}"
 echo "${yellow}Reprovisioning vagrant...${txtreset}"
 cd ~/Projects/marlin-vagrant
 vagrant provision
 echo "${boldgreen}VM provisioned, local environment up and running.${txtreset}"
 echo "${yellow}Updating hosts file...${txtreset}"
-sudo -- sh -c "echo 10.1.2.4 ${PROJECTNAME}.dev >> /etc/hosts"
+sudo -- sh -c "echo 10.1.2.4 ${PROJECTNAME}.test >> /etc/hosts"
 cd "${PROJECTPATH}"
 echo "${yellow}Updating npm packages...${txtreset}"
 npm-check-updates -u
