@@ -54,6 +54,7 @@ var sassFile = 'src/sass/base/global.scss';
 var cssDest = 'dist/css';
 var jsSrc = 'src/js';
 var jsDest = 'dist/js';
+var markupDist = 'src/*.php';
 var markupSrc = 'dist/*.php';
 var markupDest = 'dist';
 
@@ -68,7 +69,8 @@ gulp.task('browserSync', function() {
     var files = [
       imgDest + '/*.{png,jpg,jpeg,gif}',
       jsSrc + '/**/*.js',
-      markupSrc
+      markupSrc,
+      markupDist
     ];
 
     browserSync.init(files, {

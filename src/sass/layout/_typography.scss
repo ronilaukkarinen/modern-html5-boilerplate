@@ -1,106 +1,43 @@
-// Pennman's mixin for Google Web Fonts
-@import 'sass-web-fonts/web-fonts';
-$web-fonts-protocol: 'https' !global !default;
-
-// If you use self-hosted webfonts, uncomment this mixin:
-
-// Source: https://github.com/magnetikonline/sassboilerplate/blob/master/fontface.scss
-// Example usage: @include fontFace('Proxima Nova','../fonts/proximanova-regular', 400);
-// @mixin fontFace($family, $src, $weight: normal, $style: normal) {
-//   @font-face {
-//     font-family: $family;
-//     src: url('#{$src}.eot'); // IE9 compat
-//     src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
-//       url('#{$src}.woff2') format('woff2'),
-//       url('#{$src}.woff') format('woff'), // standards
-//       url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
-//       url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
-//     font-style: $style;
-//     font-weight: $weight;
-//   }
-// }
-
-// Create a fonts folder and add your custom fonts like this:
-// @include fontFace('RidleyGrotesk-Bold', '../fonts/31D08E_0_0', 700);
-
-// Google web fonts in use:
-$url: web-fonts-url(
-  ('Abhaya Libre':
-    ('400',
-     '400 italic',
-     '500',
-     '500 italic',
-     '600',
-     '600 italic',
-     '700',
-     '700 italic',
-     '800',
-     '800 italic')
-     ),
-  ('Source Sans Pro':
-    ('700',
-     '700 italic'
-    )
-  )
-);
-
-@import url($url);
-
-// Viewport sized typography with minimum and maximum values
-// Inspiration: https://css-tricks.com/molten-leading-css/
-// More inspiration: https://www.smashingmagazine.com/2016/05/fluid-typography/
+// -----------------------------------------------------------
+// Typography
 //
-// Source: https://codepen.io/eduardoboucas/pen/YXxmwv
-//
-// @author Eduardo Boucas (@eduardoboucas)
-//
-// @param {Number}   $responsive  - Viewport-based size
-// @param {Number}   $min         - Minimum font size (px)
-// @param {Number}   $max         - Maximum font size (px)
-//                                  (optional)
-// @param {Number}   $fallback    - Fallback for viewport-
-//                                  based units (optional)
-//
-// @example scss - 5vw font size (with 50px fallback),
-//                 minumum of 35px and maximum of 150px
-//  @include responsive-font(5vw, 35px, 150px, 50px);
-//
-@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
-  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
-  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
-  $min-breakpoint: $min / $responsive-unitless * 100;
-  font-size: $responsive;
+// Everything around fonts, font size definitions and typeset
+// presets. No modular scale, but a sophisticated viewport
+// based responsive mixin can be found in _helpers.scss
+// -----------------------------------------------------------
 
-  @media (max-#{$dimension}: #{$min-breakpoint}) {
-    font-size: $min;
-  }
+// Set up self-hosted fonts here
+@include fontFace('Poppins', '../fonts/poppins-light', 200);
+@include fontFace('Poppins', '../fonts/poppins-regular', 400);
+@include fontFace('Poppins', '../fonts/poppins-medium', 500);
+@include fontFace('Poppins', '../fonts/poppins-semibold', 600);
+@include fontFace('Poppins', '../fonts/poppins-bold', 700);
 
-  @if $max {
-    $max-breakpoint: $max / $responsive-unitless * 100;
-
-    @media (min-#{$dimension}: #{$max-breakpoint}) {
-      font-size: $max;
-    }
-  }
-
-  @if $fallback {
-    font-size: $fallback;
-  }
+:root {
+  font-size: 62.5%;
 }
 
 // Start typography settings
 body {
-  line-height: 2rem;
-  font-size: 1rem;
+  font-size: 1.7rem;
   font-family: $font-base;
 
+  // Preset for small fonts
+  %small {
+    @include responsive-font(1.2vw, 14px, 17px);
+  }
+
+  %extrasmall {
+    @include responsive-font(1.2vw, 12px, 14px);
+  }
+
+  // Defaults
   p,
   dd,
   dt,
   figcaption,
   hr,
   small,
-  span,
   ol,
   ul,
   li,
@@ -120,8 +57,8 @@ body {
   }
 
   p {
-    margin-top: 29px;
-    margin-bottom: 29px;
+    margin-top: 2.9rem;
+    margin-bottom: 2.9rem;
     line-height: $font-base-line-height;
 
     &:first-child {
@@ -157,108 +94,100 @@ body {
 
   // Define heading scales
   @if $headings-scale == large {
-
     h1,
-    .h1 {
+    %h1 {
       @include responsive-font(4vw, 38px, 80px);
     }
 
     h2,
-    .h2 {
+    %h2 {
       @include responsive-font(3.2vw, 32px, 68px);
     }
 
     h3,
-    .h3,
+    %h3,
     .gform_wrapper h3.gform_title {
       @include responsive-font(2.4vw, 24px, 46px);
     }
 
     h4,
-    .h4 {
+    %h4 {
       @include responsive-font(1.6vw, 21px, 34px);
     }
 
     h5,
-    .h5 {
+    %h5 {
       @include responsive-font(1.4vw, 18px, 21px);
     }
 
     h6,
-    .h6 {
+    %h6 {
       @include responsive-font(1.2vw, 14px, 18px);
     }
-
   } @else if $headings-scale == medium {
-
     h1,
-    .h1 {
+    %h1 {
       @include responsive-font(3.2vw, 32px, 68px);
     }
 
     h2,
-    .h2 {
+    %h2 {
       @include responsive-font(2.4vw, 24px, 46px);
     }
 
     h3,
-    .h3,
-    .gform_wrapper h3.gform_title {
+    %h3 {
       @include responsive-font(1.6vw, 21px, 34px);
     }
 
     h4,
-    .h4 {
+    %h4 {
       @include responsive-font(1.4vw, 18px, 21px);
     }
 
     h5,
-    .h5 {
+    %h5 {
       @include responsive-font(1.2vw, 14px, 18px);
     }
 
     h6,
-    .h6 {
+    %h6 {
       @include responsive-font(1.2vw, 14px, 18px);
     }
-
   } @else if $headings-scale == small {
-
     h1,
-    .h1 {
+    %h1 {
       @include responsive-font(2.4vw, 24px, 46px);
     }
 
     h2,
-    .h2 {
+    %h2 {
       @include responsive-font(1.6vw, 21px, 34px);
     }
 
     h3,
-    .h3,
-    .gform_wrapper h3.gform_title {
+    %h3 {
       @include responsive-font(1.4vw, 18px, 21px);
     }
 
     h4,
-    .h4 {
+    %h4 {
       @include responsive-font(1.2vw, 14px, 18px);
     }
 
     h5,
-    .h5 {
+    %h5 {
       @include responsive-font(1.2vw, 14px, 18px);
     }
 
     h6,
-    .h6 {
+    %h6 {
       @include responsive-font(1.2vw, 14px, 18px);
     }
-
   }
 
   h1,
-  .h1 {
+  %h1 {
     letter-spacing: -.02em;
 
     @if $headings-line-height-setup == flexible {
@@ -273,7 +202,7 @@ body {
   }
 
   h2,
-  .h2 {
+  %h2 {
     letter-spacing: -.02em;
 
     @if $headings-line-height-setup == flexible {
@@ -288,8 +217,7 @@ body {
   }
 
   h3,
-  .h3,
-  .gform_wrapper h3.gform_title {
+  %h3 {
     letter-spacing: -.02em;
 
     @if $headings-line-height-setup == flexible {
@@ -304,7 +232,7 @@ body {
   }
 
   h4,
-  .h4 {
+  %h4 {
     @if $headings-line-height-setup == flexible {
       line-height: 1.4rem;
     } @else {
@@ -317,7 +245,7 @@ body {
   }
 
   h5,
-  .h5 {
+  %h5 {
     @if $headings-line-height-setup == flexible {
       line-height: 1.2rem;
     } @else {
@@ -330,7 +258,7 @@ body {
   }
 
   h6,
-  .h6 {
+  %h6 {
     @if $headings-line-height-setup == flexible {
       line-height: 1rem;
     } @else {
@@ -364,8 +292,6 @@ body {
   li {
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
     font-family: $font-base;
-
-
   }
 
   // Bold.
@@ -434,7 +360,7 @@ body {
       overflow: visible;
     }
 
-    @media(min-width: $container-ipad) {
+    @media (min-width: $container-ipad) {
       margin-top: 4rem;
       padding-bottom: 4rem;
     }
@@ -448,7 +374,7 @@ body {
       top: 0;
       max-width: 147px;
 
-      @media(min-width: $container-mobile) {
+      @media (min-width: $container-mobile) {
         width: 30%;
       }
     }
@@ -505,25 +431,11 @@ body {
     margin-bottom: 2rem;
   }
 
-  // Tables
-  th,
-  td {
-    font-family: $font-base;
-    height: 3rem;
-    padding: 1rem;
-  }
-
-  // Table heading cells
-  th {
-    font-weight: 700;
-  }
-
   // Text font stack
   p,
   ul,
   ol,
   dl,
-  span,
   small,
   blockquote {
     font-family: $font-base;

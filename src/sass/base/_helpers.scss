@@ -1,0 +1,125 @@
+// ---------------------------------------------------------
+// Helpers
+//
+// Mixins and other essentials for global theme development.
+// ---------------------------------------------------------
+
+// Backgrounds
+@mixin background-cover() {
+  background: {
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+@mixin background-auto() {
+  background: {
+    size: 100% auto;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+// General
+@mixin hiddentext() {
+  text-indent: -9999px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  font-size: 0;
+  text-align: start;
+}
+
+// Positioning
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-style: preserve-3d;
+}
+
+@mixin horizontal-align {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+}
+
+@mixin centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transform-style: preserve-3d;
+}
+
+// Helper mixin for self-hosted fonts
+@mixin fontFace($family, $src, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+      src: url('#{$src}.eot');
+      src: url('#{$src}.eot?#iefix') format('embedded-opentype'),
+        url('#{$src}.woff') format('woff'),
+        url('#{$src}.woff2') format('woff2'),
+        url('#{$src}.ttf') format('truetype'),
+        url('#{$src}.svg##{$family}') format('svg');
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+// Viewport sized typography with minimum and maximum values
+// Inspiration: https://css-tricks.com/molten-leading-css/
+// More inspiration: https://www.smashingmagazine.com/2016/05/fluid-typography/
+//
+// Source: https://codepen.io/eduardoboucas/pen/YXxmwv
+//
+// @author Eduardo Boucas (@eduardoboucas)
+//
+// @param {Number}   $responsive  - Viewport-based size
+// @param {Number}   $min         - Minimum font size (px)
+// @param {Number}   $max         - Maximum font size (px)
+//                                  (optional)
+// @param {Number}   $fallback    - Fallback for viewport-
+//                                  based units (optional)
+//
+// @example scss - 5vw font size (with 50px fallback),
+//                 minumum of 35px and maximum of 150px
+//  @include responsive-font(5vw, 35px, 150px, 50px);
+//
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+  font-size: $responsive;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+}
+
+// A natural box layout model to all elements
+// Update: http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html,
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+img {
+  box-sizing: content-box;
+}

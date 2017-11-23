@@ -3,7 +3,7 @@ body {
     &.slide-hero {
       text-align: center;
       background: $color-main;
-      height: 1000px;
+      height: 100vh;
 
       .container {
         @include vertical-align();
