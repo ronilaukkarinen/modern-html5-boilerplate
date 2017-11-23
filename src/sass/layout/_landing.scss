@@ -51,11 +51,6 @@ body {
       background-color: #ffcdd2;
       border: 2px solid #d32f2f;
     }
-
-    a {
-      color: #000;
-      font-style: italic;
-    }
   }
 }
 
@@ -74,7 +69,7 @@ body {
 
   .block {
     background-color: $color-main;
-    color: white;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
