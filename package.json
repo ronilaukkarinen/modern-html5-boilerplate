@@ -2,6 +2,7 @@
   "name": "yourprojectname",
   "description": "yourprojectname powered by modern-html5-boilerplate",
   "author": "Your Name",
+  "version": "2.0.0",
   "devDependencies": {
     "browser-sync": "^2.18.7",
     "exec": "0.2.1",

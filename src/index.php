@@ -18,12 +18,33 @@
 
     <div class="wrapper">
 
+      <div class="slide slide-grid">
+        <div class="container">
+          <h2><span class="supported">Your browser supports CSS Grid</span>
+            <span class="unsupported">Your browser does not support CSS Grid</span>
+          </h2>
+
+          <p class="supports">For a current list of browsers which can display CSS grid content, visit <a href="http://caniuse.com/#search=css%20grid">caniuse.com</a>.</p>
+
+          <div class="grid">
+            <div class="block">1</div>
+            <div class="block">2</div>
+            <div class="block">3</div>
+            <div class="block">4</div>
+            <div class="block">5</div>
+            <div class="block">6</div>
+            <div class="block">7</div>
+            <div class="block">8</div>
+          </div>
+        </div>
+      </div>
+
       <div class="slide slide-hero">
         <div class="container">
           <h1>Modern HTML5 boilerplate</h1>
           <p>This is a hero text. Bacon ipsum dolor amet drumstick pancetta pork prosciutto. Biltong flank turducken pig hamburger strip steak t-bone ribeye pork loin.</p>
-        </div><!-- .container -->
-      </div><!-- .slide -->
+        </div>
+      </div>
 
       <div class="slide">
         <div class="container">
@@ -33,10 +54,10 @@
           <h4>Normal fourth heading</h4>
           <h5>Normal fifth heading</h5>
           <p>This is a container text. Bacon ipsum dolor amet drumstick pancetta pork prosciutto. Biltong flank turducken pig hamburger strip steak t-bone ribeye pork loin.</p>
-        </div><!-- .container -->
-      </div><!-- .slide -->
+        </div>
+      </div>
 
-    </div><!-- .wrapper -->
+    </div>
 
         <script src="js/all.js"></script>
 
