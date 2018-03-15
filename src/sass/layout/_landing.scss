@@ -1,25 +1,23 @@
-.slide {
-  &.slide-hero {
-    text-align: center;
-    background: $color-main;
-    height: 100vh;
+.slide.slide-hero {
+  text-align: center;
+  background: $color-main;
+  height: 100vh;
 
-    .container {
-      @include vertical-align();
+  .container {
+    @include vertical-align();
 
-      h1,
-      p {
-        color: #fff;
-      }
+    h1,
+    p {
+      color: #fff;
+    }
 
-      h1 {
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
 
-      p {
-        margin: 0;
-      }
+    p {
+      margin: 0;
     }
   }
 }
@@ -64,27 +62,27 @@
     display: flex;
     flex-wrap: wrap;
   }
+}
 
-  .block {
-    background-color: $color-main;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.block {
+  background-color: $color-main;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &:nth-of-type(odd) {
-      margin-left: 0;
-    }
+  &:nth-of-type(odd) {
+    margin-left: 0;
+  }
 
-    &:nth-of-type(even) {
-      margin-right: 0;
-    }
+  &:nth-of-type(even) {
+    margin-right: 0;
+  }
 
-    @supports not (display: grid) {
-      height: 100px;
-      width: calc(50% - 10px);
-      margin: 10px;
-      display: block;
-    }
+  @supports not (display: grid) {
+    height: 100px;
+    width: calc(50% - 10px);
+    margin: 10px;
+    display: block;
   }
 }
