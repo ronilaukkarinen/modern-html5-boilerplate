@@ -9,10 +9,11 @@
 
         <link rel="stylesheet" href="css/global.css">
 
-        <link rel="shortcut icon" href="images/favicon.png">
-        <link rel="apple-touch-icon" href="images/icon-ipad.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/icon-ipad.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/icon-retina.png">
+        <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. --> 
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        
+        <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+        <link rel="icon" href="images/favicon.png">
     </head>
     <body>
 

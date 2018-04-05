@@ -1,5 +1,5 @@
 // Colors (more: @link http://www.flatuicolorpicker.com/)
-$color-main: #369acd;
+$color-main: #e7305e;
 $color-links: #888;
 $color-hover: #1c1c1b;
 $color-body: #1c1c1b;
@@ -21,16 +21,9 @@ $font-monospace: 'Menlo', 'Courier', monospace;
 
 // Font settings
 $font-min-size: 18px; // Minimum font size, on mobile
-$font-max-size: 17px; // Maximum font size, on desktop
-$font-base-line-height: 1.78; // Line height for paragraphs
-$font-base-line-height-elements: 1.68; // Line height for other elements like table cells and spans
-$headings-line-height-setup: force; // Force: all headings have same line height. Flexible: values are set separately in _typography.scss
-$headings-line-height-forced: 1.22; // This is effective only if force is chosen in $headings-line-height-setup
+$font-max-size: 22px; // Maximum font size, on desktop
+$font-base-line-height: 1.55; // Line height for paragraphs
 $headings-weight: 800; // Default title weight. Usually 700 or 900 works pretty well
-$headings-scale: large; // Change this as a base for your project or create your own in _typography.scss.
-
-// Layout stuff
-$defaultpadding: 20px;
 
 // Breakpoints
 $layout-max-width: 100%;
