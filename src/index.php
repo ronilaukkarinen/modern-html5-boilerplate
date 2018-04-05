@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>YOUR TITLE SHOULD BE HERE - Modern HTML5 Boilerplate</title>
+        <title>Modern HTML5 Boilerplate</title>
         <meta name="description" content="YOUR META DESCRIPTION SHOULD BE HERE. This is default meta description, so if you see this, please update!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,48 +17,29 @@
     </head>
     <body>
 
-    <div class="wrapper">
+        <header>
+          <h1>Modern HTML5 Boilerplate</h1>
+          <p>This page is created with <b>Modern HTML5 Boilerplate</b> which is an easy way to create hardcoded, blazing fast landing pages without much effort. I have actually made a whole site with this in only 10 minutes.</p>
+          <p><a href="#" class="button">Some fancy button</a></p>
+        </header>
 
-      <div class="slide slide-grid">
-        <div class="container">
-          <h2><span class="supported">Your browser supports CSS Grid</span>
-            <span class="unsupported">Your browser does not support CSS Grid</span>
-          </h2>
-
-          <p class="supports">For a current list of browsers which can display CSS grid content, visit <a href="http://caniuse.com/#search=css%20grid">caniuse.com</a>.</p>
-
-          <div class="grid">
-            <div class="block">1</div>
-            <div class="block">2</div>
-            <div class="block">3</div>
-            <div class="block">4</div>
-            <div class="block">5</div>
-            <div class="block">6</div>
-            <div class="block">7</div>
-            <div class="block">8</div>
-          </div>
+        <div class="block">
+          <h1>You can use any kind of blocks you want</h1>
         </div>
-      </div>
 
-      <div class="slide slide-hero">
-        <div class="container">
-          <h1>Modern HTML5 boilerplate</h1>
-          <p>This is a hero text. Bacon ipsum dolor amet drumstick pancetta pork prosciutto. Biltong flank turducken pig hamburger strip steak t-bone ribeye pork loin.</p>
-        </div>
-      </div>
+        <h1>What's inside?</h1>
 
-      <div class="slide">
-        <div class="container">
-          <h1>Normal first heading</h1>
-          <h2>Normal second heading</h2>
-          <h3>Normal third heading</h3>
-          <h4>Normal fourth heading</h4>
-          <h5>Normal fifth heading</h5>
-          <p>This is a container text. Bacon ipsum dolor amet drumstick pancetta pork prosciutto. Biltong flank turducken pig hamburger strip steak t-bone ribeye pork loin.</p>
-        </div>
-      </div>
+        <p>This page weights only couple of kilobytes. The advanced SCSS structure is <i>really</i> minimal, you can count on that.</p>
 
-    </div>
+        <p>Responsive fonts come with viewport units and scale automatically. There are pixel fallbacks, naturally.</p>
+
+        <h1>Look me mom, I scale!</h1>
+        <h2>Look me mom, I scale!</h2>
+        <h3>Look me mom, I scale!</h3>
+        <h4>Look me mom, I scale!</h4>
+        <h5>Look me mom, I scale!</h5>
+
+        <p class="footer">That's about it! start fiddling!</p>
 
         <script src="js/all.js"></script>
 

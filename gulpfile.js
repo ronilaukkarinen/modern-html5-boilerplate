@@ -145,6 +145,7 @@ gulp.task('js', function() {
       gulp.src(
         [
           'node_modules/jquery/dist/jquery.js',
+          'node_modules/what-input/dist/what-input.js',
           jsSrc + '/scripts.js',
         ])
         .pipe(concat('all.js'))

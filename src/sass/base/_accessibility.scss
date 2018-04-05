@@ -5,6 +5,11 @@
 // vision impaired and other useful a11y CSS hacks.
 // ---------------------------------------------------------
 
+// Variables
+$focus-background-color: #f9bf47;
+$focus-outline-color: #f9bf47;
+$focus-text-color: #000;
+
 // Text meant only for screen readers.
 .screen-reader-text {
   border: 0;
@@ -24,14 +29,14 @@
 
   &:focus {
     background-color: #f1f1f1;
-    border-radius: 3px;
+    border-radius: 0;
     box-shadow: 0 0 2px 2px rgba(#000, .6);
     clip: auto !important;
     clip-path: none;
     color: #21759b;
     display: block;
-    font-size: .875rem;
-    font-weight: bold;
+    font-size: 1.7rem;
+    font-weight: 700;
     height: auto;
     left: 5px;
     line-height: normal;
@@ -44,16 +49,44 @@
 }
 
 // Do not show the outline on the skip link target.
-#content[tabindex="-1"]:focus {
+[tabindex="-1"]:focus {
   outline: 0;
 }
 
-// Override focus outline only where needed
-input,
-button,
-select,
-textarea {
-  &:focus {
-    outline: thin solid $color_links;
+// Suppress focus ring on for mouse users for visual reasons
+[data-whatinput="mouse"] *:focus {
+  outline: none;
+}
+
+// Visually distinct focus color on keyboard
+[data-whatinput="keyboard"] {
+  input:focus,
+  button:focus,
+  select:focus,
+  textarea:focus {
+    outline: 4px solid $focus-outline-color;
+    opacity: 1;
   }
+
+  nav ul li a:focus {
+    background: $focus-background-color;
+    color: $focus-text-color;
+  }
+
+  a:focus {
+    outline: 2px solid $focus-outline-color;
+    background: $focus-background-color;
+    opacity: 1;
+  }
+}
+
+// Make theme keyboard accessible with no Javascript enabled
+.no-js *:focus {
+  outline: 4px solid $focus-outline-color;
+}
+
+// Links within content must be underlined
+// @link https://make.wordpress.org/themes/handbook/review/accessibility/required/#content-links
+p a {
+  text-decoration: underline;
 }

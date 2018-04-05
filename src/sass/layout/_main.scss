@@ -1,0 +1,65 @@
+// Demo content
+// Remove these and start over. Or don't, it's your call.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  max-width: $grid-base;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+p {
+  max-width: 80rem;
+}
+
+header p:last-child {
+  margin-bottom: 11.1rem;
+}
+
+p.footer {
+  color: $color-main;
+  font-size: 25px;
+  margin-top: 11.1rem;
+  margin-bottom: 11.1rem;
+}
+
+h1 {
+  margin-top: 10rem;
+}
+
+.block {
+  max-width: 100%;
+  background: $color-main;
+  margin: 0;
+  height: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.button {
+  padding: .5rem 2rem;
+  border: 2px solid $color-main;
+  color: $color-main;
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+
+  &:hover {
+    background: $color-main;
+    color: #fff;
+  }
+}
+
