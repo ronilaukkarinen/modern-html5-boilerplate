@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Forgot something? Edit this title to describe your project - Modern HTML5 Boilerplate</title>
-        <meta name="description" content="You forgot to edit meta description. Not good.">
+        <title>YOUR TITLE SHOULD BE HERE - Modern HTML5 Boilerplate</title>
+        <meta name="description" content="YOUR META DESCRIPTION SHOULD BE HERE. This is default meta description, so if you see this, please update!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/global.css">
