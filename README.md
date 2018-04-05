@@ -11,7 +11,7 @@ In need of a simple landing pages or static websites? Then this extremely minima
 - Flexible SCSS grid included: [Jeet Grid](http://jeet.gs/)
 - Responsive typography with viewport units
 
-![](https://rolle.design/mhb.png "Screenshot")
+![](https://rolle.design/mhb-2018.png "Screenshot")
 
 ## Installation
 

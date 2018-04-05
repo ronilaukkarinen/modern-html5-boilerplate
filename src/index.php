@@ -33,11 +33,11 @@
 
         <p>Responsive fonts come with viewport units and scale automatically. There are pixel fallbacks, naturally.</p>
 
-        <h1>Look me mom, I scale!</h1>
-        <h2>Look me mom, I scale!</h2>
-        <h3>Look me mom, I scale!</h3>
-        <h4>Look me mom, I scale!</h4>
-        <h5>Look me mom, I scale!</h5>
+        <h1>Look mom, I scale!</h1>
+        <h2>Look mom, I scale!</h2>
+        <h3>Look mom, I scale!</h3>
+        <h4>Look mom, I scale!</h4>
+        <h5>Look mom, I scale!</h5>
 
         <p class="footer">That's about it! start fiddling!</p>
 
