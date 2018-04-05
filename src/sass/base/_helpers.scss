@@ -31,29 +31,6 @@
   text-align: start;
 }
 
-// Positioning
-@mixin vertical-align {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  transform-style: preserve-3d;
-}
-
-@mixin horizontal-align {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  transform-style: preserve-3d;
-}
-
-@mixin centered {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  transform-style: preserve-3d;
-}
-
 // Helper mixin for self-hosted fonts
 @mixin fontFace($family, $src, $weight: normal, $style: normal) {
   @font-face {
