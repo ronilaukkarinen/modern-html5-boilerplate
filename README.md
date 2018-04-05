@@ -1,10 +1,9 @@
 # Modern HTML5 Boilerplate
 
-In need of a simple landing pages or static websites? Then Modern HTML5 Boilerplate might be just for you.
+In need of a simple landing pages or static websites? Then this extremely minimal Modern HTML5 Boilerplate might be just for you.
 
 ## Features
 
-- CSS Grid with Flexbox fallback
 - Support for HTML minification
 - Cache support, disabled by default
 - Automatic JS/CSS minification, uglify, combine, compress and concat with [Gulp](http://gulpjs.com/)
@@ -12,10 +11,7 @@ In need of a simple landing pages or static websites? Then Modern HTML5 Boilerpl
 - Flexible SCSS grid included: [Jeet Grid](http://jeet.gs/)
 - Responsive typography with viewport units
 
-## Screenshots
-
-![](https://rolle.wtf/modern-html5-boilerplate-2-1.png "Screenshot")
-![](https://rolle.wtf/modern-html5-boilerplate-2-2.png "Screenshot 2")
+![](https://rolle.design/mhb.png "Screenshot")
 
 ## Installation
 
