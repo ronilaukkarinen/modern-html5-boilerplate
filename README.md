@@ -22,36 +22,6 @@ In need of a simple landing pages or static websites? Then this extremely minima
 5. Edit `package.json` and `gulpfile.js` and rename project name and author according to your new project
 6. `gulp watch` and start coding your static website (you might want to change meta tags and `_config.scss` variables first)
 
-Start with `src/sass/layout/_landing.scss`.
-
-Basic HTML structure goes like this:
-
-```` html
-<div class="slide slide-something">
-  <div class="container">
-    <h1>This is a container.</h1>
-    <p>This is a container text.</p>
-  </div><!-- .container -->
-</div><!-- .slide -->
-````
-
-Where basic SCSS structure be like:
-
-```` scss
-.slide {
-  &.slide-hero {
-    // Do something
-
-    .container {
-      // Do something
-
-      h1,
-      p {
-        color: #222;
-      }
-    }
-  }
-}
-````
+Start with `src/sass/layout/_main.scss`.
 
 **Have fun!**
