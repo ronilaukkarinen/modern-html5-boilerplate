@@ -55,7 +55,7 @@ var sassSrc = 'src/sass/**/*.{sass,scss}';
 var sassFile = 'src/sass/base/global.scss';
 var cssDest = 'dist/css';
 var srcDir = 'src';
-var jsSrc = 'src/js';
+var jsSrc = 'src/js/**/*.js';
 var jsDest = 'dist/js';
 var markupSrc = 'src/*.php';
 var markupDist = 'dist/*.php';
@@ -72,7 +72,7 @@ gulp.task('browsersync', function() {
 
     var files = [
       imgDest + '/*.{png,jpg,jpeg,gif}',
-      jsSrc + '/**/*.js',
+      jsSrc,
       markupSrc,
       markupDist
     ];
@@ -201,17 +201,13 @@ SCRIPTS
 =======
 */
 
-var currentDate   = util.date(new Date(), 'dd-mm-yyyy HH:ss');
-var pkg           = require('./package.json');
-var banner        = '/*! <%= pkg.name %> <%= currentDate %> - <%= pkg.author %> */\n';
-
 gulp.task('js', function() {
 
       gulp.src(
         [
           'node_modules/jquery/dist/jquery.js',
           'node_modules/what-input/dist/what-input.js',
-          jsSrc + '/scripts.js',
+          'src/js/scripts.js',
         ])
         .pipe(concat('all.js'))
         .pipe(uglify({
