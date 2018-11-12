@@ -7,7 +7,7 @@ REQUIRED STUFF
 var gulp        = require('gulp');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
-var browserSync = require('browser-sync').create();
+var browsersync = require('browser-sync').create();
 var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
 var cleancss    = require('gulp-clean-css');
@@ -21,6 +21,9 @@ var rename      = require('gulp-rename');
 var stylefmt    = require('gulp-stylefmt');
 var debug       = require('gulp-debug');
 var scsslint    = require('gulp-scss-lint');
+var php2html    = require('gulp-php2html');
+var htmlmin     = require('gulp-htmlmin');
+var phpcs       = require('gulp-phpcs');
 
 /*
 
@@ -52,11 +55,13 @@ var imgDest = 'dist/images';
 var sassSrc = 'src/sass/**/*.{sass,scss}';
 var sassFile = 'src/sass/base/global.scss';
 var cssDest = 'dist/css';
+var srcDir = 'src';
 var jsSrc = 'src/js';
 var jsDest = 'dist/js';
-var markupDist = 'src/*.php';
-var markupSrc = 'dist/*.php';
+var markupSrc = 'src/*.php';
+var markupDist = 'dist/*.php';
 var markupDest = 'dist';
+var htmlSrc = 'src/*.html';
 
 /*
 
@@ -64,7 +69,7 @@ BROWSERSYNC
 ===========
 */
 
-gulp.task('browserSync', function() {
+gulp.task('browsersync', function() {
 
     var files = [
       imgDest + '/*.{png,jpg,jpeg,gif}',
@@ -73,9 +78,9 @@ gulp.task('browserSync', function() {
       markupDist
     ];
 
-    browserSync.init(files, {
+    browsersync.init(files, {
         proxy: "modern-html5-boilerplate.test",
-        browser: "Google Chrome Canary",
+        browser: null,
         notify: true,
         open: "external",
         reloadDelay: 1000
@@ -143,7 +148,7 @@ gulp.task('styles', function() {
     suffix: '.min'
   }))
   .pipe(gulp.dest(cssDest))
-  .pipe(browserSync.stream());
+  .pipe(browsersync.stream());
 
   // Save expanded version
   gulp.src(sassFile)
@@ -170,7 +175,7 @@ gulp.task('styles', function() {
   // Process the expanded output with Stylefmt
   .pipe(stylefmt({ configFile: './.stylelintrc' }))
   .pipe(gulp.dest(cssDest))
-  .pipe(browserSync.stream());
+  .pipe(browsersync.stream());
 
   });
 
@@ -222,21 +227,65 @@ gulp.task('js', function() {
 
 /*
 
+PHP
+===
+*/
+
+gulp.task('php', function() {
+
+  gulp.src(markupSrc)
+
+    // Validate files using PHP Code Sniffer
+    .pipe(phpcs({
+      bin: '/usr/local/bin/phpcs',
+      standard: 'phpcs.xml',
+      warningSeverity: 0
+    }))
+
+    // Log all problems that was found
+    .pipe(phpcs.reporter('log'))
+
+    // Make dist HTML versions from php files
+    .pipe(php2html())
+    .pipe(gulp.dest(srcDir));
+
+});
+
+/*
+
+HTML
+====
+*/
+
+gulp.task('html', function() {
+
+  gulp.src(htmlSrc)
+
+    // Minify HTML
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest(markupDest));
+
+});
+
+/*
+
 WATCH
 =====
 
 Notes:
-   - browserSync automatically reloads any files
+   - browsersync automatically reloads any files
      that change within the directory it's serving from
 */
 
 // Run the JS task followed by a reload
-gulp.task('js-watch', ['js'], browserSync.reload);
+gulp.task('js-watch', ['js'], browsersync.reload);
 
 gulp.task('watch', ['browsersync'], function() {
 
   gulp.watch(sassSrc, ['styles', 'scss-lint']).on( 'change', helpers );
   gulp.watch(jsSrc, ['js-watch']);
+  gulp.watch(markupSrc, ['php']);
+  gulp.watch(htmlSrc, ['html']);
 
 });
 
