@@ -7,7 +7,7 @@
         <meta name="description" content="YOUR META DESCRIPTION SHOULD BE HERE. This is default meta description, so if you see this, please update!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/global.min.css">
 
         <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png">

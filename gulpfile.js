@@ -14,7 +14,6 @@ var cleancss    = require('gulp-clean-css');
 var uglify      = require('gulp-uglify-es').default;
 var concat      = require('gulp-concat');
 var util        = require('gulp-util');
-var header      = require('gulp-header');
 var pixrem      = require('gulp-pixrem');
 var exec        = require('child_process').exec;
 var rename      = require('gulp-rename');
@@ -221,7 +220,6 @@ gulp.task('js', function() {
             util.log(util.colors.red('[Error]'), err.toString());
             this.emit('end');
         }))
-        .pipe(header(banner, {pkg: pkg, currentDate: currentDate}))
         .pipe(gulp.dest(jsDest));
 });
 
