@@ -32,7 +32,7 @@ case $choice in
       localip="127.0.0.1"
       break
       # Choose $choice
-     ;;   
+     ;;
      *)
      echo "${red}Please type, 1 or 2 only.${txtreset}
      "
@@ -100,8 +100,6 @@ sudo -- sh -c "echo 127.0.0.1 ${PROJECTNAME}.test >> /etc/hosts"
 fi
 
 cd "${PROJECTPATH}"
-echo "${yellow}Updating npm packages...${txtreset}"
-npm-check-updates -u
 echo "${yellow}Installing npm packages...${txtreset}"
 npm install
 echo "${boldgreen}All done!${txtreset}"
