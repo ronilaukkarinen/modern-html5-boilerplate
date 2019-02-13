@@ -5,6 +5,7 @@
   "version": "2.0.0",
   "devDependencies": {
     "access-sniff": "^3.2.0",
+    "gulp-cached": "^1.1.1",
     "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-accessibility": "^3.1.1",
